@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Parlays Champions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+
+/* Layout: one narrow column like the betting app; slip switcher, summary scoreboard, then one card per match with tappable selections */
+:root{
+  --bg:#eaeef2; --surface:#ffffff; --ink:#122130; --muted:#5a6a7a; --line:#d4dbe2;
+  --accent:#2453c4; --win:#18804a; --win-bg:#e3f3ea; --lose:#c23434; --lose-bg:#fbe7e7; --pend:#8592a0;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1520; --surface:#13202e; --ink:#e6ecf2; --muted:#8c9eb0; --line:#22334a;
+  --accent:#7b9dff; --win:#3cc27c; --win-bg:#123326; --lose:#ff6f6f; --lose-bg:#3a1a1e; --pend:#6c7d8f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1520; --surface:#13202e; --ink:#e6ecf2; --muted:#8c9eb0; --line:#22334a;
+  --accent:#7b9dff; --win:#3cc27c; --win-bg:#123326; --lose:#ff6f6f; --lose-bg:#3a1a1e; --pend:#6c7d8f; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.4}
+body{margin:0}
+#app{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 40px;display:flex;flex-direction:column;gap:14px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px}
+.tab{font:600 15px/1.2 var(--body);border:0;border-radius:7px;padding:9px 6px;background:transparent;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);color:#fff}
+.tab small{display:block;font-family:var(--display);font-size:13px;letter-spacing:.04em;opacity:.85}
+.sum{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.sumtop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.big{font:700 34px/1 var(--display);font-variant-numeric:tabular-nums}
+.chip{font:700 13px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;white-space:nowrap}
+.chip.p{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.chip.w{background:var(--win-bg);color:var(--win)} .chip.l{background:var(--lose-bg);color:var(--lose)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.nums div{display:flex;flex-direction:column;gap:2px}
+.nums b{font:700 20px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.bar{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--line)}
+.bar i{display:block;height:100%}
+.bar .w{background:var(--win)} .bar .l{background:var(--lose)}
+.counts{display:flex;gap:14px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.counts b{color:var(--ink);font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.leg{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.leg.l{border-color:color-mix(in srgb,var(--lose) 55%,var(--line))}
+.leg.w{border-color:color-mix(in srgb,var(--win) 55%,var(--line))}
+.lh{padding:12px 14px 10px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--line)}
+.lrow{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.mname{font-weight:600;min-width:0}
+.odds{font:700 18px/1 var(--display);font-variant-numeric:tabular-nums}
+.score{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.sc{font:700 20px/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.live{color:var(--lose);font-weight:600;text-transform:uppercase;font-size:11px;letter-spacing:.08em}
+.live.ft{color:var(--muted)}
+.sel{width:100%;display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;text-align:left;border:0;border-top:1px solid var(--line);background:transparent;color:inherit;font:inherit;padding:10px 14px;cursor:pointer}
+.sel:first-of-type{border-top:0}
+.sel:hover{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.sel:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--pend);display:grid;place-items:center;font-weight:700;font-size:14px;line-height:1}
+.sel.w .dot{background:var(--win);border-color:var(--win);color:#fff}
+.sel.l .dot{background:var(--lose);border-color:var(--lose);color:#fff}
+.st{min-width:0;display:flex;flex-direction:column}
+.st span{font-size:12px;color:var(--muted)}
+.st b{font-weight:600}
+.sel.l .st b{text-decoration:line-through;text-decoration-color:var(--lose)}
+.pr{text-align:right;font-size:12px;color:var(--muted);display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.pr em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
+.tag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.tag.man{color:var(--accent)}
+.help{font-size:13px;color:var(--muted);line-height:1.5;padding:0 2px}
+.help b{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){.bar i{transition:width .3s}}
+.link{border:0;background:none;color:var(--accent);font:600 13px var(--body);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px}
+.link:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script id="slips" type="application/json">{"date":"20261014","competition":"uefa.champions","slips":[{"id":"5526822135","odds":1480.83,"stake":25,"win":37020.82,"legs":[{"m":"rom","o":3.25,"s":[{"id":"b11","l":"Doble oportunidad","p":"1 o 2","r":{"t":"dc","v":"12"}},{"id":"b12","l":"Total de goles","p":"Más de 2.5","r":{"t":"goals","o":"over","n":2.5}},{"id":"b13","l":"Goleador · Kylian Mbappé","p":"Cualquier momento","r":{"t":"scorer","name":"Mbappe"}},{"id":"b14","l":"Tiros de esquina","p":"Más de 6.5","r":{"t":"corners","o":"over","n":6.5}},{"id":"b15","l":"Total de tarjetas","p":"Más de 2.5","r":{"t":"cards","o":"over","n":2.5}}]},{"m":"avl","o":2.05,"s":[{"id":"b21","l":"Ambos equipos marcan","p":"Sí","r":{"t":"btts"}},{"id":"b22","l":"Total de goles","p":"Más de 1.5","r":{"t":"goals","o":"over","n":1.5}},{"id":"b23","l":"Tiros de esquina","p":"Menos de 15.5","r":{"t":"corners","o":"under","n":15.5}},{"id":"b24","l":"Total de tarjetas","p":"Menos de 6.5","r":{"t":"cards","o":"under","n":6.5}}]},{"m":"bod","o":2.42,"s":[{"id":"b31","l":"Ambos equipos marcan","p":"Sí","r":{"t":"btts"}},{"id":"b32","l":"Doble oportunidad","p":"1 o 2","r":{"t":"dc","v":"12"}},{"id":"b33","l":"Total de goles","p":"Más de 2.5","r":{"t":"goals","o":"over","n":2.5}},{"id":"b34","l":"Tiros de esquina","p":"Más de 5.5","r":{"t":"corners","o":"over","n":5.5}},{"id":"b35","l":"Total de tarjetas","p":"Más de 1.5","r":{"t":"cards","o":"over","n":1.5}}]},{"m":"mci","o":8.5,"s":[{"id":"b41","l":"Ambos equipos marcan","p":"Sí","r":{"t":"btts"}},{"id":"b42","l":"Doble oportunidad","p":"1 o 2","r":{"t":"dc","v":"12"}},{"id":"b43","l":"Total de goles","p":"Más de 2.5","r":{"t":"goals","o":"over","n":2.5}},{"id":"b44","l":"Goleador · Erling Haaland","p":"Cualquier momento","r":{"t":"scorer","name":"Haaland"}},{"id":"b45","l":"Goleador · Désiré Doué","p":"Cualquier momento","r":{"t":"scorer","name":"Doue"}},{"id":"b46","l":"Tiros de esquina","p":"Más de 5.5","r":{"t":"corners","o":"over","n":5.5}},{"id":"b47","l":"Total de tarjetas","p":"Más de 1.5","r":{"t":"cards","o":"over","n":1.5}}]},{"m":"slo","o":1.52,"s":[{"id":"b51","l":"Ambos equipos marcan","p":"Sí","r":{"t":"btts"}},{"id":"b52","l":"Total de goles","p":"Más de 1.5","r":{"t":"goals","o":"over","n":1.5}}]},{"m":"bet","o":2.08,"s":[{"id":"b61","l":"Ambos equipos marcan","p":"Sí","r":{"t":"btts"}},{"id":"b62","l":"Total de goles","p":"Más de 1.5","r":{"t":"goals","o":"over","n":1.5}},{"id":"b63","l":"Tiros de esquina","p":"Más de 5.5","r":{"t":"corners","o":"over","n":5.5}},{"id":"b64","l":"Total de tarjetas","p":"Menos de 6.5","r":{"t":"cards","o":"under","n":6.5}}]},{"m":"sha","o":3.4,"s":[{"id":"b71","l":"Ambos equipos marcan","p":"Sí","r":{"t":"btts"}},{"id":"b72","l":"Doble oportunidad","p":"1 o 2","r":{"t":"dc","v":"12"}},{"id":"b73","l":"Tiros de esquina","p":"Más de 4.5","r":{"t":"corners","o":"over","n":4.5}},{"id":"b74","l":"Total de tarjetas","p":"Menos de 6.5","r":{"t":"cards","o":"under","n":6.5}}]}]},{"id":"5526655971","odds":40.36,"stake":25,"win":1009.12,"legs":[{"m":"rom","o":2.45,"s":[{"id":"a11","l":"1x2 (PA)","p":"2 · Real Madrid","r":{"t":"1x2","v":"2","pa":1}},{"id":"a12","l":"Goleador · Kylian Mbappé","p":"Cualquier momento","r":{"t":"scorer","name":"Mbappe"}},{"id":"a13","l":"Tiros de esquina","p":"Más de 5.5","r":{"t":"corners","o":"over","n":5.5}}]},{"m":"avl","o":1.61,"s":[{"id":"a21","l":"1x2 (PA)","p":"1 · Aston Villa","r":{"t":"1x2","v":"1","pa":1}}]},{"m":"mci","o":2.0,"s":[{"id":"a31","l":"1x2 · cuotas especiales","p":"1 · Manchester City","r":{"t":"1x2","v":"1"}}]},{"m":"slo","o":1.37,"s":[{"id":"a41","l":"1x2 (PA)","p":"2 · VfB Stuttgart","r":{"t":"1x2","v":"2","pa":1}}]},{"m":"sha","o":1.46,"s":[{"id":"a51","l":"Total de goles","p":"Más de 1.5","r":{"t":"goals","o":"over","n":1.5}},{"id":"a52","l":"Tiros de esquina","p":"Más de 5.5","r":{"t":"corners","o":"over","n":5.5}}]},{"m":"bod","o":1.18,"s":[{"id":"a61","l":"Total de goles","p":"Más de 1.5","r":{"t":"goals","o":"over","n":1.5}},{"id":"a62","l":"Tiros de esquina","p":"Más de 5.5","r":{"t":"corners","o":"over","n":5.5}}]},{"m":"bet","o":2.14,"s":[{"id":"a71","l":"Doble oportunidad","p":"1 o empate","r":{"t":"dc","v":"1X"}},{"id":"a72","l":"Total de goles","p":"Más de 1.5","r":{"t":"goals","o":"over","n":1.5}},{"id":"a73","l":"Remates a puerta · Troy Parrott","p":"Más de 0.5","r":{"t":"sot","name":"Parrott","n":0.5}},{"id":"a74","l":"Tiros de esquina","p":"Más de 5.5","r":{"t":"corners","o":"over","n":5.5}}]}]}],"teams":{"rom":{"home":"AS Roma","away":"Real Madrid","q":["roma","real madrid"]},"avl":{"home":"Aston Villa","away":"Fenerbahçe","q":["aston villa","fenerbahce"]},"mci":{"home":"Manchester City","away":"PSG","q":["manchester city","paris"]},"slo":{"home":"Slovan Bratislava","away":"VfB Stuttgart","q":["slovan","stuttgart"]},"sha":{"home":"Shakhtar Donetsk","away":"AEK","q":["shakhtar","aek"]},"bod":{"home":"Bodø/Glimt","away":"Borussia Dortmund","q":["glimt","dortmund"]},"bet":{"home":"Real Betis","away":"FC Porto","q":["betis","porto"]}}}</script>
+<script>
+// Lee marcadores, córners, tarjetas, goleadores y remates a puerta desde la API pública de ESPN.
+// Funciona en el navegador (window.ESPN) y en Node 18+ (globalThis.ESPN), que usa la GitHub Action.
+(function (g) {
+  function norm(s) {
+    return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ø/g, 'o').toLowerCase();
+  }
+  async function getJSON(f, url) {
+    const r = await f(url, { cache: 'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }
+  function stat(team, names) {
+    const arr = (team && team.statistics) || [];
+    for (const n of names) {
+      const x = arr.find((s) => s.name === n);
+      if (x) {
+        const v = Number(x.displayValue != null ? x.displayValue : x.value);
+        if (!isNaN(v)) return v;
+      }
+    }
+    return null;
+  }
+  function teamText(c) {
+    const t = (c && c.team) || {};
+    return norm([t.displayName, t.name, t.shortDisplayName, t.location, t.abbreviation].join(' '));
+  }
+
+  async function load(cfg, fetchFn) {
+    const f = fetchFn || g.fetch.bind(g);
+    const base = 'https://site.api.espn.com/apis/site/v2/sports/soccer/' + cfg.competition;
+    const sb = await getJSON(f, base + '/scoreboard?dates=' + cfg.date);
+    const events = sb.events || [];
+    const out = { updated: new Date().toISOString(), source: 'ESPN', matches: {} };
+
+    await Promise.all(Object.keys(cfg.teams).map(async (key) => {
+      const q = cfg.teams[key].q;
+      const ev = events.find((e) => {
+        const cs = (e.competitions && e.competitions[0] && e.competitions[0].competitors) || [];
+        return cs.some((c) => teamText(c).includes(q[0])) && cs.some((c) => teamText(c).includes(q[1]));
+      });
+      if (!ev) return;
+      const comp = ev.competitions[0];
+      const home = comp.competitors.find((c) => c.homeAway === 'home') || comp.competitors[0];
+      const away = comp.competitors.find((c) => c.homeAway === 'away') || comp.competitors[1];
+      const type = (ev.status && ev.status.type) || {};
+      const st = type.state === 'post' ? 'ft' : type.state === 'in' ? (/HALFTIME|HALF_TIME/i.test(type.name || '') ? 'ht' : 'live') : 'pre';
+      const m = {
+        h: Number(home.score) || 0, a: Number(away.score) || 0, st: st,
+        clock: (ev.status && ev.status.displayClock) || '', c: null, k: null, sc: [], sot: {}
+      };
+
+      if (st !== 'pre') {
+        try {
+          const su = await getJSON(f, base + '/summary?event=' + ev.id);
+          let c = 0, k = 0, hasC = false, hasK = false;
+          ((su.boxscore && su.boxscore.teams) || []).forEach((t) => {
+            const wc = stat(t, ['wonCorners', 'cornerKicks', 'corners']);
+            if (wc != null) { c += wc; hasC = true; }
+            const y = stat(t, ['yellowCards']), r = stat(t, ['redCards']);
+            if (y != null || r != null) { k += (y || 0) + (r || 0); hasK = true; }
+          });
+          if (hasC) m.c = c;
+          if (hasK) m.k = k;
+          (su.keyEvents || []).forEach((e) => {
+            const txt = (e.type && e.type.text) || '';
+            if (e.scoringPlay && !/own goal/i.test(txt)) {
+              const p = (e.participants || [])[0];
+              if (p && p.athlete) m.sc.push(p.athlete.displayName);
+            }
+          });
+          (su.rosters || []).forEach((r) => (r.roster || []).forEach((p) => {
+            const s = (p.stats || []).find((x) => x.name === 'shotsOnTarget');
+            if (s && p.athlete) m.sot[p.athlete.displayName] = Number(s.value) || 0;
+          }));
+        } catch (e) { /* el resumen falló: se usa lo del marcador */ }
+      }
+      const det = comp.details || [];
+      if (!m.sc.length) det.forEach((d) => {
+        if (d.scoringPlay && !d.ownGoal) (d.athletesInvolved || []).slice(0, 1).forEach((a) => m.sc.push(a.displayName));
+      });
+      if (m.k == null && st !== 'pre' && det.length) m.k = det.filter((d) => d.yellowCard || d.redCard).length;
+      m.sc = Array.from(new Set(m.sc));
+      out.matches[key] = m;
+    }));
+    return out;
+  }
+
+  g.ESPN = { load: load, norm: norm };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+(function () {
+  var CFG = null, LIVE = { matches: {} }, SRC = '', OV = {}, tab = 0;
+  var LSK = 'parlays-ov', REFRESH = 60000;
+  try { OV = JSON.parse(localStorage.getItem(LSK) || '{}') || {}; } catch (e) {}
+  try { tab = +(localStorage.getItem('parlays-tab') || 0) || 0; } catch (e) {}
+
+  var norm = function (s) { return window.ESPN.norm(s); };
+  function fmt(n, d) { return Number(n).toLocaleString('es-HN', { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function match(key) {
+    var t = CFG.teams[key], l = LIVE.matches[key] || {};
+    return {
+      home: t.home, away: t.away, h: l.h || 0, a: l.a || 0, st: l.st || 'pre', clock: l.clock || '',
+      c: l.c == null ? null : l.c, k: l.k == null ? null : l.k, sc: l.sc || [], sot: l.sot || {}
+    };
+  }
+  function res(m) { return m.h > m.a ? '1' : m.h < m.a ? '2' : 'X'; }
+  function ou(val, r, fin, unit) {
+    if (val == null) return { s: 'p', t: 'sin dato aún' };
+    var t = val + ' ' + unit;
+    if (r.o === 'over') {
+      if (val > r.n) return { s: 'w', t: t };
+      return { s: fin ? 'l' : 'p', t: t + ' · faltan ' + Math.ceil(r.n - val) };
+    }
+    if (val > r.n) return { s: 'l', t: t };
+    return { s: fin ? 'w' : 'p', t: t };
+  }
+  function evalSel(r, m) {
+    var fin = m.st === 'ft';
+    if (m.st === 'pre') return { s: 'p', t: 'no ha empezado' };
+    if (r.t === 'goals') return ou(m.h + m.a, r, fin, 'goles');
+    if (r.t === 'corners') return ou(m.c, r, fin, 'córners');
+    if (r.t === 'cards') return ou(m.k, r, fin, 'tarjetas');
+    if (r.t === 'btts') {
+      if (m.h > 0 && m.a > 0) return { s: 'w', t: 'ambos marcaron' };
+      return { s: fin ? 'l' : 'p', t: m.h > 0 ? 'falta ' + m.away : m.a > 0 ? 'falta ' + m.home : 'nadie ha marcado' };
+    }
+    if (r.t === '1x2' || r.t === 'dc') {
+      var ok = r.v.indexOf(res(m)) >= 0;
+      var diff = r.v === '1' ? m.h - m.a : r.v === '2' ? m.a - m.h : 0;
+      var t = ok ? 'va cumpliendo' : 'va fallando';
+      if (r.pa && diff >= 2) t = '+2 · revisa pago anticipado';
+      return { s: fin ? (ok ? 'w' : 'l') : 'p', t: t };
+    }
+    if (r.t === 'scorer') {
+      var hit = m.sc.some(function (n) { return norm(n).indexOf(norm(r.name)) >= 0; });
+      if (hit) return { s: 'w', t: '¡marcó!' };
+      return { s: fin ? 'l' : 'p', t: 'no ha marcado' };
+    }
+    if (r.t === 'sot') {
+      var name = Object.keys(m.sot).find(function (n) { return norm(n).indexOf(norm(r.name)) >= 0; });
+      if (!name) return { s: 'p', t: 'sin dato · márcala tú' };
+      var v = m.sot[name];
+      if (v > r.n) return { s: 'w', t: v + ' a puerta' };
+      return { s: fin ? 'l' : 'p', t: v + ' a puerta' };
+    }
+    return { s: 'p', t: 'márcala tú' };
+  }
+  function selState(x, m) { var a = evalSel(x.r, m), o = OV[x.id]; return { s: o || a.s, t: a.t, man: !!o }; }
+  function legState(leg) {
+    var m = match(leg.m), w = 0, l = 0;
+    leg.s.forEach(function (x) { var s = selState(x, m).s; if (s === 'w') w++; if (s === 'l') l++; });
+    return l ? 'l' : w === leg.s.length ? 'w' : 'p';
+  }
+
+  function render() {
+    var app = document.getElementById('app');
+    if (!CFG) { app.innerHTML = '<p class="help">Cargando boletos…</p>'; return; }
+    if (tab >= CFG.slips.length) tab = 0;
+    var slip = CFG.slips[tab], tw = 0, tl = 0, tot = 0;
+    slip.legs.forEach(function (leg) {
+      var m = match(leg.m);
+      leg.s.forEach(function (x) { tot++; var s = selState(x, m).s; if (s === 'w') tw++; if (s === 'l') tl++; });
+    });
+    var st = tl ? 'l' : tw === tot ? 'w' : 'p', stTxt = { p: 'En juego', w: '¡Ganado!', l: 'Perdido' }[st];
+    var h = '<div class="tabs" role="tablist">' + CFG.slips.map(function (s, i) {
+      return '<button class="tab" role="tab" id="tab' + i + '" aria-selected="' + (i === tab) + '" data-tab="' + i + '">Cuota ' + fmt(s.odds, 2) +
+        '<small>' + s.legs.length + ' partidos · ID ' + esc(s.id.slice(-4)) + '</small></button>';
+    }).join('') + '</div>';
+    h += '<section class="sum"><div class="sumtop"><div><div class="lbl">Ganancia posible</div><div class="big">HNL ' + fmt(slip.win, 2) +
+      '</div></div><span class="chip ' + st + '">' + stTxt + '</span></div>';
+    h += '<div class="nums"><div><span class="lbl">Cuota</span><b>' + fmt(slip.odds, 2) + '</b></div><div><span class="lbl">Apuesta</span><b>HNL ' +
+      fmt(slip.stake, 2) + '</b></div><div><span class="lbl">Partidos ok</span><b>' +
+      slip.legs.filter(function (l) { return legState(l) === 'w'; }).length + ' / ' + slip.legs.length + '</b></div></div>';
+    h += '<div class="bar" aria-hidden="true"><i class="w" style="width:' + (tw / tot * 100) + '%"></i><i class="l" style="width:' + (tl / tot * 100) + '%"></i></div>';
+    h += '<div class="counts"><span><b>' + tw + '</b> ganadas</span><span><b>' + (tot - tw - tl) + '</b> pendientes</span><span><b>' + tl + '</b> perdidas</span></div>';
+    h += '<div class="note"><span>' + esc(SRC) + '</span><button class="link" id="refresh" type="button">Actualizar ahora</button></div></section>';
+    slip.legs.forEach(function (leg) {
+      var m = match(leg.m), ls = legState(leg);
+      var live = m.st === 'pre' ? '<span class="live ft">Por empezar</span>' : m.st === 'ft' ? '<span class="live ft">Final</span>' :
+        m.st === 'ht' ? '<span class="live">Medio tiempo</span>' : '<span class="live">En vivo ' + esc(m.clock) + '</span>';
+      h += '<article class="leg ' + ls + '"><div class="lh"><div class="lrow"><span class="mname">' + esc(m.home) + ' vs ' + esc(m.away) +
+        '</span><span class="odds">' + fmt(leg.o, 2) + '</span></div>';
+      h += '<div class="score"><span class="sc">' + m.h + ' – ' + m.a + '</span>' + live + '<span>' + (m.c == null ? '–' : m.c) + ' córners · ' +
+        (m.k == null ? '–' : m.k) + ' tarjetas</span>' + (m.sc.length ? '<span>⚽ ' + esc(m.sc.join(', ')) + '</span>' : '') + '</div></div>';
+      leg.s.forEach(function (x) {
+        var ss = selState(x, m), ico = ss.s === 'w' ? '✓' : ss.s === 'l' ? '✕' : '';
+        h += '<button class="sel ' + ss.s + '" id="sel-' + esc(x.id) + '" data-id="' + esc(x.id) + '" aria-label="' + esc(x.l + ': ' + x.p) +
+          '"><span class="dot" aria-hidden="true">' + ico + '</span><span class="st"><span>' + esc(x.l) + '</span><b>' + esc(x.p) +
+          '</b></span><span class="pr"><em>' + esc(ss.t) + '</em><span class="tag' + (ss.man ? ' man' : '') + '">' + (ss.man ? 'manual' : 'auto') + '</span></span></button>';
+      });
+      h += '</article>';
+    });
+    h += '<p class="help">Los marcadores se revisan solos cada minuto. Toca una selección para forzarla: <b>ganada → perdida → automática</b>. ' +
+      'Tus marcas se guardan en este teléfono o computadora.</p>';
+    app.innerHTML = h;
+  }
+
+  function hhmm(d) { return new Date(d).toLocaleTimeString('es-HN', { hour: 'numeric', minute: '2-digit', second: '2-digit' }); }
+  async function refresh() {
+    try {
+      LIVE = await window.ESPN.load(CFG);
+      SRC = 'En vivo desde ESPN · ' + hhmm(LIVE.updated);
+    } catch (e) {
+      try {
+        var r = await fetch('data.json?t=' + Date.now(), { cache: 'no-store' });
+        LIVE = await r.json();
+        SRC = 'Datos de respaldo · ' + hhmm(LIVE.updated);
+      } catch (e2) { SRC = 'No se pudieron leer los marcadores. Reintentando…'; }
+    }
+    render();
+  }
+
+  document.getElementById('app').addEventListener('click', function (e) {
+    var t = e.target.closest('[data-tab]');
+    if (t) { tab = +t.dataset.tab; try { localStorage.setItem('parlays-tab', tab); } catch (er) {} render(); return; }
+    if (e.target.closest('#refresh')) { SRC = 'Actualizando…'; render(); refresh(); return; }
+    var b = e.target.closest('[data-id]'); if (!b) return;
+    var id = b.dataset.id, cur = OV[id];
+    if (!cur) OV[id] = 'w'; else if (cur === 'w') OV[id] = 'l'; else delete OV[id];
+    try { localStorage.setItem(LSK, JSON.stringify(OV)); } catch (er) {}
+    render();
+    var nb = document.getElementById('sel-' + id); if (nb) nb.focus();
+  });
+
+  render();
+  Promise.resolve(JSON.parse(document.getElementById('slips').textContent)).then(function (c) {
+    CFG = c; render(); refresh(); setInterval(refresh, REFRESH);
+  }).catch(function () { document.getElementById('app').innerHTML = '<p class="help">No se pudo cargar slips.json.</p>'; });
+})();
+
+</script>
+</body>
+</html>
