@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Parlay 16 de octubre</title>
+<title>Boleto de 11 partidos</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
 <style>
-/* Layout: una columna tipo app de apuestas; índice arriba, parlays sugeridos, simulador, boleto de la imagen, ambos marcan, consejos y una tarjeta por partido */
+/* Layout: una columna tipo boleto; resumen arriba, simulador y una tarjeta por selección */
 :root{
   --bg:#eaeef2;--surface:#fff;--ink:#122130;--muted:#5a6a7a;--line:#d4dbe2;--soft:#f3f6f9;
   --accent:#2453c4;--win:#18804a;--win-bg:#e3f3ea;--lose:#c23434;--lose-bg:#fbe7e7;--pend:#8592a0;--away:#9a7b1c;
@@ -118,215 +118,117 @@ ol.tips li b{font-weight:600}
 .warn{font-size:13px;color:var(--lose);font-weight:500}
 @media (max-width:420px){.x3{grid-template-columns:78px 1fr}.kpis b{font-size:22px}}
 @media (prefers-reduced-motion:no-preference){.meter i{transition:width .4s}}
+.pa{font:700 11px/1 var(--body);border:1px solid var(--line);border-radius:4px;padding:2px 5px;margin-left:6px;color:var(--muted)}
+.oddsv{font:700 20px/1 var(--display);font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
 <div id="app"></div>
-<script id="data" type="application/json">{"title":"Parlay 16/10 · 14 marcadores exactos","date":"20261016-20261017","combo_exact":8.880675709547297e-17,"combo_side":4.3345419328282396e-05,"rows":[{"n":1,"home":"Eintracht Frankfurt","away":"1. FC Köln","league":"Bundesliga","pick":"3-1","f1":[50.7,20.9,28.4],"f2":[50.4,22.0,27.6],"fin":[50.5,21.5,28.0],"side":0,"side_p":50.5,"exact":6.1,"best":"1-1","best_p":9.6,"corners":9.6,"cards":4.0,"offs":4.0,"sources":["Sportradar","KickOff","Fox Sports (cuotas)"],"espn":"ger.1","qh":["frankfurt"],"qa":["koln","cologne"],"ko":"2026-10-16T18:30:00Z","lh":1.96,"la":1.41,"sim1x2":[50.5,21.8,27.7],"top":[{"s":"1-1","p":9.5},{"s":"2-1","p":9.2},{"s":"1-0","p":6.7},{"s":"1-2","p":6.7},{"s":"2-0","p":6.6}],"mkts":{"BY":{"p":64.8},"O1.5":{"p":84.9},"O2.5":{"p":65.4},"U3.5":{"p":56.4},"1X":{"p":72.3},"X2":{"p":49.5},"12":{"p":78.2},"CO7.5":{"p":68.9},"CO8.5":{"p":58.2},"CO9.5":{"p":47.6},"CO10.5":{"p":37.5},"KO1.5":{"p":86.7},"KO2.5":{"p":71.1},"KO3.5":{"p":53.4},"KO4.5":{"p":36.8},"OO2.5":{"p":70.2},"OO3.5":{"p":52.7},"OO4.5":{"p":36.7}},"facts":["Frankfurt 14.º: últimos 5 → P 0-6 Leipzig, E 2-2 Freiburg, G 3-1 Mainz, P 1-4 Augsburg, E 3-3 Union","Köln 10.º: G 2-1 Gladbach, P 1-2 Hamburgo, E 1-1 Bremen, P 1-4 Stuttgart; perdió sus 3 últimas de visita","Frankfurt recibe 3.2 goles por partido (Fox Sports); más de 2.5 goles en sus últimos 9 (Forebet)","H2H: Frankfurt empató sus últimos 4 partidos de local contra Köln (KickOff)"],"btts_src":71.0,"btts_fin":67.9},{"n":2,"home":"Le Mans","away":"Toulouse","league":"Ligue 1","pick":"1-2","f1":[32.5,26.6,40.9],"f2":[37.6,24.8,37.6],"fin":[35.1,25.7,39.3],"side":2,"side_p":39.3,"exact":8.4,"best":"1-1","best_p":11.6,"corners":9.2,"cards":3.9,"offs":3.8,"sources":["Sportradar"],"espn":"fra.1","qh":["le mans"],"qa":["toulouse"],"ko":"2026-10-16T18:45:00Z","lh":1.38,"la":1.47,"sim1x2":[35.2,25.1,39.7],"top":[{"s":"1-1","p":11.7},{"s":"1-2","p":8.7},{"s":"0-1","p":8.5},{"s":"2-1","p":8.1},{"s":"1-0","p":7.9}],"mkts":{"BY":{"p":57.7},"O1.5":{"p":77.8},"O2.5":{"p":54.3},"U3.5":{"p":68.0},"1X":{"p":60.3},"X2":{"p":64.8},"12":{"p":74.9},"CO7.5":{"p":65.0},"CO8.5":{"p":53.9},"CO9.5":{"p":43.2},"CO10.5":{"p":33.5},"KO1.5":{"p":85.7},"KO2.5":{"p":69.7},"KO3.5":{"p":51.8},"KO4.5":{"p":35.3},"OO2.5":{"p":67.1},"OO3.5":{"p":49.4},"OO4.5":{"p":33.7}},"facts":["Le Mans 14.º (6 pts): L-E-E-G-L; viene de perder 1-3 con el PSG","Toulouse 15.º (6 pts): E-L-E-G-E; empató 2-2 en Mónaco","Toulouse ganó los últimos 4 enfrentamientos y está invicto en los últimos 6 (Football Whispers)","Le Mans recibe 2.0 goles por partido; Toulouse 1.83"],"btts_src":61.0,"btts_fin":59.4},{"n":3,"home":"Çorum FK","away":"Rizespor","league":"Süper Lig","pick":"0-1","f1":[46.0,24.0,30.0],"f2":[45.4,25.1,29.5],"fin":[45.7,24.5,29.7],"side":2,"side_p":29.7,"exact":7.7,"best":"1-1","best_p":11.9,"corners":9.6,"cards":5.0,"offs":3.8,"sources":["KickOff"],"espn":"tur.1","qh":["corum"],"qa":["rize"],"ko":"2026-10-16T17:00:00Z","lh":1.56,"la":1.21,"sim1x2":[45.6,24.9,29.4],"top":[{"s":"1-1","p":11.8},{"s":"1-0","p":9.8},{"s":"2-1","p":9.3},{"s":"2-0","p":7.7},{"s":"0-1","p":7.5}],"mkts":{"BY":{"p":55.5},"O1.5":{"p":76.4},"O2.5":{"p":52.4},"U3.5":{"p":69.8},"1X":{"p":70.6},"X2":{"p":54.4},"12":{"p":75.1},"CO7.5":{"p":69.0},"CO8.5":{"p":58.4},"CO9.5":{"p":47.7},"CO10.5":{"p":37.7},"KO1.5":{"p":93.2},"KO2.5":{"p":82.7},"KO3.5":{"p":68.5},"KO4.5":{"p":52.8},"OO2.5":{"p":67.0},"OO3.5":{"p":49.4},"OO4.5":{"p":33.7}},"facts":["Ambos con 10 pts en 7 partidos: Çorum 8.º, Rizespor 10.º","Çorum: G 3-0 Gaziantep, G 5-1 Samsunspor, P 0-3 Eyüpspor","Rizespor: P 0-3 Fenerbahçe, E 2-2 Göztepe, G 2-0 Eyüpspor; 4 lesionados (Ajansspor)","Nunca se han enfrentado"],"btts_src":60.0,"btts_fin":57.8},{"n":4,"home":"Frosinone","away":"Sassuolo","league":"Serie A","pick":"1-2","f1":[34.5,31.8,33.8],"f2":[37.8,24.3,37.8],"fin":[36.2,28.0,35.8],"side":2,"side_p":35.8,"exact":8.4,"best":"1-1","best_p":11.2,"corners":10.6,"cards":4.8,"offs":3.8,"sources":["Sportradar","Forebet"],"espn":"ita.1","qh":["frosinone"],"qa":["sassuolo"],"ko":"2026-10-16T18:45:00Z","lh":1.41,"la":1.4,"sim1x2":[37.4,25.3,37.3],"top":[{"s":"1-1","p":12.0},{"s":"1-0","p":8.6},{"s":"0-1","p":8.4},{"s":"1-2","p":8.3},{"s":"2-1","p":8.3}],"mkts":{"BY":{"p":56.9},"O1.5":{"p":77.0},"O2.5":{"p":53.2},"U3.5":{"p":69.1},"1X":{"p":62.7},"X2":{"p":62.6},"12":{"p":74.7},"CO7.5":{"p":77.5},"CO8.5":{"p":68.2},"CO9.5":{"p":58.1},"CO10.5":{"p":47.9},"KO1.5":{"p":92.2},"KO2.5":{"p":81.0},"KO3.5":{"p":66.0},"KO4.5":{"p":49.9},"OO2.5":{"p":67.2},"OO3.5":{"p":49.3},"OO4.5":{"p":33.5}},"facts":["Frosinone 9.º (10 pts): P 0-3 Napoli, G 2-0 Como, E 1-1 Genoa, G 3-2 Venezia","Sassuolo 11.º (8 pts): E 1-1 Milan, P 1-2 Monza, G 3-2 Juventus, E 2-2 Bologna","Sassuolo domina el historial; más de 2.5 goles en 9 de los últimos 15 (Forebet)","Forebet espera 10.6 córners y 4.8 tarjetas"],"btts_src":76.0,"btts_fin":66.5},{"n":5,"home":"Deportivo La Coruña","away":"Levante","league":"LaLiga","pick":"3-2","f1":[45.4,34.7,19.9],"f2":[48.7,26.6,24.7],"fin":[47.0,30.6,22.3],"side":0,"side_p":47.0,"exact":2.1,"best":"1-0","best_p":13.2,"corners":10.1,"cards":4.5,"offs":4.0,"sources":["Sportradar","Forebet"],"espn":"esp.1","qh":["deportivo","coruna"],"qa":["levante"],"ko":"2026-10-16T19:00:00Z","lh":1.33,"la":0.84,"sim1x2":[48.1,28.3,23.6],"top":[{"s":"1-0","p":15.3},{"s":"1-1","p":12.8},{"s":"0-0","p":11.4},{"s":"2-0","p":10.1},{"s":"0-1","p":9.6}],"mkts":{"BY":{"p":41.7},"O1.5":{"p":63.7},"O2.5":{"p":36.7},"U3.5":{"p":82.6},"1X":{"p":76.4},"X2":{"p":51.9},"12":{"p":71.7},"CO7.5":{"p":73.5},"CO8.5":{"p":63.5},"CO9.5":{"p":52.9},"CO10.5":{"p":42.7},"KO1.5":{"p":90.3},"KO2.5":{"p":77.7},"KO3.5":{"p":61.8},"KO4.5":{"p":45.3},"OO2.5":{"p":70.0},"OO3.5":{"p":52.9},"OO4.5":{"p":36.9}},"facts":["Deportivo 8.º (10 pts): P 2-3 Real Sociedad, E 1-1 Betis, P 0-1 Sevilla, E 1-1 Getafe","Levante 17.º (6 pts): E 3-3 Sevilla, P 1-3 Villarreal, P 2-4 Barcelona, E 0-0 Málaga","Deportivo invicto en sus últimos 7 de liga contra Levante; 3 empates en los últimos 6 (Forebet)","Forebet espera 10.1 córners y 4.5 tarjetas"],"btts_src":49.0,"btts_fin":45.4},{"n":6,"home":"Burnley","away":"Wolves","league":"Championship","pick":"1-2","f1":[37.0,27.4,35.6],"f2":[41.6,26.2,32.2],"fin":[39.3,26.8,33.9],"side":2,"side_p":33.9,"exact":7.5,"best":"1-1","best_p":12.5,"corners":10.2,"cards":4.1,"offs":3.8,"sources":["Foresportia","Football Whispers (cuotas)"],"espn":"eng.2","qh":["burnley"],"qa":["wolverhampton","wolves"],"ko":"2026-10-16T19:00:00Z","lh":1.34,"la":1.23,"sim1x2":[39.3,26.5,34.2],"top":[{"s":"1-1","p":12.7},{"s":"1-0","p":10.3},{"s":"0-1","p":9.4},{"s":"2-1","p":8.4},{"s":"1-2","p":7.8}],"mkts":{"BY":{"p":52.4},"O1.5":{"p":72.7},"O2.5":{"p":47.4},"U3.5":{"p":74.2},"1X":{"p":65.8},"X2":{"p":60.7},"12":{"p":73.5},"CO7.5":{"p":74.0},"CO8.5":{"p":64.1},"CO9.5":{"p":53.7},"CO10.5":{"p":43.5},"KO1.5":{"p":87.6},"KO2.5":{"p":72.6},"KO3.5":{"p":55.2},"KO4.5":{"p":38.6},"OO2.5":{"p":67.0},"OO3.5":{"p":49.3},"OO4.5":{"p":33.5}},"facts":["Championship: Burnley 21.º (8 pts) E-G-E-P-E; Wolves 9.º (14 pts) E-G-G-P-P","Burnley invicto en 8 partidos de local contra Wolves (4G 4E)","Burnley anota 1.8 y recibe 1.4 por partido; Wolves 1.0 y 1.2","Las fuentes se contradicen sobre el favorito"],"btts_src":56.0,"btts_fin":54.2},{"n":7,"home":"Al Qadsiah","away":"Abha","league":"Saudi Pro League","pick":"3-0","f1":[81.0,13.0,6.0],"f2":[77.4,15.2,7.4],"fin":[79.2,14.1,6.7],"side":0,"side_p":79.2,"exact":11.5,"best":"2-0","best_p":14.3,"corners":9.2,"cards":4.2,"offs":4.0,"sources":["Cuotas (footballpredictions.ai)"],"espn":"ksa.1","qh":["qadsiah","qadisiyah","qadisiya"],"qa":["abha"],"ko":"2026-10-16T13:15:00Z","lh":2.45,"la":0.56,"sim1x2":[78.9,14.5,6.6],"top":[{"s":"2-0","p":14.8},{"s":"3-0","p":12.1},{"s":"1-0","p":12.1},{"s":"2-1","p":8.3},{"s":"4-0","p":7.3}],"mkts":{"BY":{"p":39.2},"O1.5":{"p":80.2},"O2.5":{"p":57.7},"U3.5":{"p":64.7},"1X":{"p":93.4},"X2":{"p":21.1},"12":{"p":85.5},"CO7.5":{"p":64.9},"CO8.5":{"p":53.9},"CO9.5":{"p":43.2},"CO10.5":{"p":33.4},"KO1.5":{"p":88.3},"KO2.5":{"p":73.9},"KO3.5":{"p":56.8},"KO4.5":{"p":40.3},"OO2.5":{"p":70.0},"OO3.5":{"p":52.7},"OO4.5":{"p":36.9}},"facts":["Al Qadsiah 2.º (19 pts): G-E-G-G-G, 2.8 goles por partido en los últimos 5","Abha último (2 pts), sin ganar en la liga, 0.8 goles por partido","Cuota de Al Qadsiah: 1.11"],"btts_src":50.0,"btts_fin":44.6},{"n":8,"home":"Rapid Wien","away":"Hartberg","league":"Bundesliga Austria","pick":"3-1","f1":[74.0,15.0,11.0],"f2":[71.7,16.9,11.4],"fin":[72.8,15.9,11.2],"side":0,"side_p":72.8,"exact":7.6,"best":"2-0","best_p":11.2,"corners":9.8,"cards":4.0,"offs":3.8,"sources":["KickOff","Cuotas (LeoVegas 1.32)"],"espn":"aut.1","qh":["rapid"],"qa":["hartberg"],"ko":"2026-10-16T17:30:00Z","lh":2.43,"la":0.83,"sim1x2":[72.7,16.4,10.9],"top":[{"s":"2-0","p":11.4},{"s":"2-1","p":9.3},{"s":"1-0","p":9.3},{"s":"3-0","p":9.2},{"s":"1-1","p":7.7}],"mkts":{"BY":{"p":51.4},"O1.5":{"p":83.8},"O2.5":{"p":63.3},"U3.5":{"p":58.7},"1X":{"p":89.1},"X2":{"p":27.3},"12":{"p":83.6},"CO7.5":{"p":70.6},"CO8.5":{"p":60.2},"CO9.5":{"p":49.6},"CO10.5":{"p":39.5},"KO1.5":{"p":86.6},"KO2.5":{"p":71.0},"KO3.5":{"p":53.3},"KO4.5":{"p":36.9},"OO2.5":{"p":67.2},"OO3.5":{"p":49.3},"OO4.5":{"p":33.6}},"facts":["Rapid 1.º (21 pts, 7G 0E 1P): 5 victorias seguidas de local y 3 partidos sin recibir gol","Hartberg 5.º (11 pts); casi 3 goles por partido en sus últimos 5","Hartberg anotó en los últimos 3 enfrentamientos con Rapid (Wettbasis)","Rapid ganó sus últimos 3 de liga por 2 o más goles (Forebet)"],"btts_src":55.0,"btts_fin":53.2},{"n":9,"home":"Sydney FC","away":"Western Sydney","league":"A-League","pick":"2-1","f1":[42.8,30.0,27.2],"f2":[47.6,25.9,26.5],"fin":[45.2,27.9,26.9],"side":0,"side_p":45.2,"exact":9.2,"best":"1-1","best_p":12.3,"corners":10.0,"cards":4.2,"offs":3.6,"sources":["Foresportia"],"espn":"aus.1","qh":["sydney fc"],"qa":["western sydney","wanderers"],"ko":"2026-10-16T09:00:00Z","lh":1.42,"la":1.04,"sim1x2":[45.7,26.6,27.7],"top":[{"s":"1-1","p":12.5},{"s":"1-0","p":12.1},{"s":"2-1","p":9.0},{"s":"0-1","p":9.0},{"s":"2-0","p":8.6}],"mkts":{"BY":{"p":49.0},"O1.5":{"p":70.3},"O2.5":{"p":44.6},"U3.5":{"p":76.6},"1X":{"p":72.3},"X2":{"p":54.3},"12":{"p":73.4},"CO7.5":{"p":72.4},"CO8.5":{"p":62.3},"CO9.5":{"p":51.8},"CO10.5":{"p":41.4},"KO1.5":{"p":88.2},"KO2.5":{"p":73.8},"KO3.5":{"p":56.6},"KO4.5":{"p":40.0},"OO2.5":{"p":63.9},"OO3.5":{"p":45.8},"OO4.5":{"p":30.4}},"facts":["Jornada 1 de la A-League: derbi de Sídney","Sydney FC ganó los dos derbis de este año","Western Sydney terminó último la temporada pasada y perdió sus últimos 5","Historial: Western Sydney ganó 12 de 44 derbis"],"btts_src":55.7,"btts_fin":52.4},{"n":10,"home":"Java United","away":"Bali United","league":"Super League Indonesia","pick":"0-3","f1":[22.0,25.0,53.0],"f2":[21.0,24.0,55.0],"fin":[21.5,24.5,54.0],"side":2,"side_p":54.0,"exact":5.8,"best":"0-1","best_p":12.0,"corners":9.0,"cards":4.5,"offs":3.5,"sources":["Estimación por forma (FotMob/Jawa Pos)"],"espn":"idn.1","qh":["java"],"qa":["bali"],"ko":"2026-10-16T12:00:00Z","lh":0.96,"la":1.67,"sim1x2":[21.6,24.2,54.2],"top":[{"s":"0-1","p":12.0},{"s":"1-1","p":11.5},{"s":"0-2","p":10.1},{"s":"1-2","p":9.7},{"s":"0-0","p":7.2}],"mkts":{"BY":{"p":50.2},"O1.5":{"p":73.9},"O2.5":{"p":49.0},"U3.5":{"p":72.9},"1X":{"p":45.8},"X2":{"p":78.4},"12":{"p":75.8},"CO7.5":{"p":62.9},"CO8.5":{"p":51.8},"CO9.5":{"p":41.0},"CO10.5":{"p":31.4},"KO1.5":{"p":90.4},"KO2.5":{"p":77.7},"KO3.5":{"p":61.5},"KO4.5":{"p":45.3},"OO2.5":{"p":62.4},"OO3.5":{"p":44.2},"OO4.5":{"p":28.9}},"facts":["El rival real es Bali United, no Isenmulang Kalteng","Java United viene de ganar 2-1 a Borneo; antes llevaba 3 sin ganar","Bali United goleó 6-1 al Persijap; 12 goles en el torneo (Jawa Pos)","Historial: Bali United 2 victorias, 2 empates (FotMob)"],"btts_src":null,"btts_fin":50.2},{"n":12,"home":"Newroz","away":"Al Mina'a","league":"Iraq Stars League","pick":"2-0","f1":[48.0,28.0,24.0],"f2":[51.2,26.8,22.0],"fin":[49.6,27.4,23.0],"side":0,"side_p":49.6,"exact":10.5,"best":"1-0","best_p":14.5,"corners":8.5,"cards":4.5,"offs":3.5,"sources":["Estimación por forma y H2H (FotMob)"],"espn":"irq.1","qh":["newroz"],"qa":["minaa","mina'a","mina"],"ko":"2026-10-16T15:00:00Z","lh":1.41,"la":0.87,"sim1x2":[49.7,27.2,23.1],"top":[{"s":"1-0","p":14.4},{"s":"1-1","p":12.5},{"s":"0-0","p":10.3},{"s":"2-0","p":10.2},{"s":"2-1","p":8.9}],"mkts":{"BY":{"p":43.8},"O1.5":{"p":66.4},"O2.5":{"p":39.9},"U3.5":{"p":80.4},"1X":{"p":76.9},"X2":{"p":50.3},"12":{"p":72.8},"CO7.5":{"p":57.8},"CO8.5":{"p":46.4},"CO9.5":{"p":35.9},"CO10.5":{"p":26.7},"KO1.5":{"p":90.4},"KO2.5":{"p":77.6},"KO3.5":{"p":61.6},"KO4.5":{"p":45.2},"OO2.5":{"p":62.2},"OO3.5":{"p":44.0},"OO4.5":{"p":28.9}},"facts":["Newroz invicto en 7 partidos, 8 goles en los últimos 5 (FotMob)","Al Mina'a: 5 goles en los últimos 5; 2 partidos sin anotar","Historial: Newroz 3 victorias y 1 empate"],"btts_src":null,"btts_fin":43.8},{"n":13,"home":"Brommapojkarna","away":"Djurgården","league":"Allsvenskan","pick":"1-2","f1":[20.0,20.5,59.5],"f2":[20.6,25.6,53.8],"fin":[20.3,23.0,56.7],"side":2,"side_p":56.7,"exact":9.3,"best":"0-1","best_p":14.1,"corners":10.4,"cards":3.5,"offs":3.6,"sources":["Forebet","Cuotas (Expekt 1.50)"],"espn":"swe.1","qh":["brommapojkarna"],"qa":["djurgarden"],"ko":"2026-10-16T17:00:00Z","lh":0.86,"la":1.65,"sim1x2":[19.5,24.5,56.0],"top":[{"s":"0-1","p":13.3},{"s":"1-1","p":11.6},{"s":"0-2","p":11.1},{"s":"1-2","p":9.6},{"s":"0-0","p":8.1}],"mkts":{"BY":{"p":46.7},"O1.5":{"p":71.6},"O2.5":{"p":45.8},"U3.5":{"p":75.6},"1X":{"p":44.0},"X2":{"p":80.5},"12":{"p":75.5},"CO7.5":{"p":75.6},"CO8.5":{"p":66.0},"CO9.5":{"p":55.7},"CO10.5":{"p":45.4},"KO1.5":{"p":81.6},"KO2.5":{"p":63.4},"KO3.5":{"p":44.6},"KO4.5":{"p":28.9},"OO2.5":{"p":64.0},"OO3.5":{"p":45.9},"OO4.5":{"p":30.5}},"facts":["Djurgården 2.º (44 pts): ganó 5 de sus últimos 6 de liga","Brommapojkarna 11.º (30 pts), recibió 41 goles en 23 partidos","Pero BP ganó 2-1 el último duelo de liga (mayo 2026)","Forebet espera 10.4 córners y 3.5 tarjetas"],"btts_src":49.0,"btts_fin":47.9},{"n":14,"home":"Baniyas","away":"Al-Wasl","league":"UAE Pro League","pick":"1-3","f1":[17.5,22.0,60.5],"f2":[19.9,21.7,58.3],"fin":[18.7,21.9,59.4],"side":2,"side_p":59.4,"exact":6.5,"best":"1-1","best_p":10.2,"corners":9.0,"cards":4.5,"offs":3.6,"sources":["Cuotas (footballpredictions.ai)","Cuotas (scores24)"],"espn":"uae.1","qh":["baniyas","bani yas"],"qa":["wasl"],"ko":"2026-10-16T12:45:00Z","lh":1.01,"la":1.96,"sim1x2":[19.1,21.7,59.3],"top":[{"s":"1-1","p":10.3},{"s":"0-1","p":10.0},{"s":"1-2","p":9.8},{"s":"0-2","p":9.8},{"s":"1-3","p":6.5}],"mkts":{"BY":{"p":54.6},"O1.5":{"p":79.6},"O2.5":{"p":56.9},"U3.5":{"p":65.5},"1X":{"p":40.7},"X2":{"p":80.9},"12":{"p":78.3},"CO7.5":{"p":62.9},"CO8.5":{"p":51.8},"CO9.5":{"p":41.0},"CO10.5":{"p":31.3},"KO1.5":{"p":90.4},"KO2.5":{"p":77.7},"KO3.5":{"p":61.6},"KO4.5":{"p":45.3},"OO2.5":{"p":64.0},"OO3.5":{"p":45.9},"OO4.5":{"p":30.5}},"facts":["Al-Wasl: 2.6 goles por partido en los últimos 10","Baniyas: más de 7.5 córners en 8 de sus últimos 9 (Scores24)","Historial: 38 partidos, Al-Wasl 23 victorias, Baniyas 8"],"btts_src":61.5,"btts_fin":58.0},{"n":15,"home":"Boca Juniors","away":"Talleres","league":"Liga Profesional","pick":"3-0","f1":[54.2,27.7,18.1],"f2":[55.1,26.2,18.7],"fin":[54.7,26.9,18.4],"side":0,"side_p":54.7,"exact":5.9,"best":"1-0","best_p":15.8,"corners":9.0,"cards":5.6,"offs":4.2,"sources":["Foresportia","Cuotas (BetMines)"],"espn":"arg.1","qh":["boca"],"qa":["talleres"],"ko":"2026-10-17T00:30:00Z","lh":1.48,"la":0.74,"sim1x2":[55.0,26.4,18.6],"top":[{"s":"1-0","p":16.2},{"s":"1-1","p":11.9},{"s":"2-0","p":11.9},{"s":"0-0","p":10.8},{"s":"2-1","p":8.9}],"mkts":{"BY":{"p":40.3},"O1.5":{"p":65.0},"O2.5":{"p":38.3},"U3.5":{"p":81.6},"1X":{"p":81.4},"X2":{"p":45.0},"12":{"p":73.6},"CO7.5":{"p":63.1},"CO8.5":{"p":51.8},"CO9.5":{"p":41.1},"CO10.5":{"p":31.5},"KO1.5":{"p":95.4},"KO2.5":{"p":87.7},"KO3.5":{"p":75.9},"KO4.5":{"p":61.6},"OO2.5":{"p":72.7},"OO3.5":{"p":55.9},"OO4.5":{"p":40.0}},"facts":["Boca 3.º del Clausura (5G 6E 1P), invicto en los últimos 5","Talleres 15.º del Clausura (2G 3E 7P), 0.6 goles por partido en los últimos 5","Historial reciente: Boca 3 victorias y 2 empates","Partido de muchas tarjetas: liga argentina con ~5.6 por partido"],"btts_src":46.6,"btts_fin":43.5}],"parlays":[{"id":"seguro","name":"Parlay seguro (4)","desc":"Las 4 selecciones de resultado con más probabilidad (entre 80% y 92%). Acierta seguido, pero paga poco.","legs":[{"n":8,"key":"1X","label":"Doble oportunidad 1X (Rapid Wien o empate)","rule":{"t":"dc","v":"1X"},"p":89.1,"match":"Rapid Wien vs Hartberg"},{"n":1,"key":"O1.5","label":"Más de 1.5 goles","rule":{"t":"goals","o":"over","n":1.5},"p":84.9,"match":"Eintracht Frankfurt vs 1. FC Köln"},{"n":5,"key":"U3.5","label":"Menos de 3.5 goles","rule":{"t":"goals","o":"under","n":3.5},"p":82.6,"match":"Deportivo La Coruña vs Levante"},{"n":15,"key":"U3.5","label":"Menos de 3.5 goles","rule":{"t":"goals","o":"under","n":3.5},"p":81.6,"match":"Boca Juniors vs Talleres"}],"p":50.97,"fair":1.96},{"id":"equilibrado","name":"Parlay equilibrado (6)","desc":"Mezcla de favoritos claros, doble oportunidad y goles en los partidos con señales más fuertes.","legs":[{"n":7,"key":"1","label":"Gana Al Qadsiah","rule":{"t":"1x2","v":"1"},"p":78.9,"match":"Al Qadsiah vs Abha"},{"n":8,"key":"1","label":"Gana Rapid Wien","rule":{"t":"1x2","v":"1"},"p":72.7,"match":"Rapid Wien vs Hartberg"},{"n":14,"key":"X2","label":"Doble oportunidad X2 (Al-Wasl o empate)","rule":{"t":"dc","v":"X2"},"p":80.9,"match":"Baniyas vs Al-Wasl"},{"n":15,"key":"1X","label":"Doble oportunidad 1X (Boca Juniors o empate)","rule":{"t":"dc","v":"1X"},"p":81.4,"match":"Boca Juniors vs Talleres"},{"n":1,"key":"O1.5","label":"Más de 1.5 goles","rule":{"t":"goals","o":"over","n":1.5},"p":84.9,"match":"Eintracht Frankfurt vs 1. FC Köln"},{"n":13,"key":"X2","label":"Doble oportunidad X2 (Djurgården o empate)","rule":{"t":"dc","v":"X2"},"p":80.5,"match":"Brommapojkarna vs Djurgården"}],"p":25.86,"fair":3.87},{"id":"ganadores","name":"Ganadores directos (5)","desc":"Solo victorias de los favoritos más claros. Más riesgo, mejor pago.","legs":[{"n":7,"key":"1","label":"Gana Al Qadsiah","rule":{"t":"1x2","v":"1"},"p":78.9,"match":"Al Qadsiah vs Abha"},{"n":8,"key":"1","label":"Gana Rapid Wien","rule":{"t":"1x2","v":"1"},"p":72.7,"match":"Rapid Wien vs Hartberg"},{"n":13,"key":"2","label":"Gana Djurgården","rule":{"t":"1x2","v":"2"},"p":56.0,"match":"Brommapojkarna vs Djurgården"},{"n":14,"key":"2","label":"Gana Al-Wasl","rule":{"t":"1x2","v":"2"},"p":59.3,"match":"Baniyas vs Al-Wasl"},{"n":15,"key":"1","label":"Gana Boca Juniors","rule":{"t":"1x2","v":"1"},"p":55.0,"match":"Boca Juniors vs Talleres"}],"p":10.52,"fair":9.51},{"id":"ambos","name":"Ambos marcan (3)","desc":"Los 3 partidos con más probabilidad de que anoten los dos equipos.","legs":[{"n":1,"key":"BY","label":"Ambos equipos marcan: Sí","rule":{"t":"btts","v":"yes"},"p":64.8,"match":"Eintracht Frankfurt vs 1. FC Köln"},{"n":2,"key":"BY","label":"Ambos equipos marcan: Sí","rule":{"t":"btts","v":"yes"},"p":57.7,"match":"Le Mans vs Toulouse"},{"n":4,"key":"BY","label":"Ambos equipos marcan: Sí","rule":{"t":"btts","v":"yes"},"p":56.9,"match":"Frosinone vs Sassuolo"}],"p":21.14,"fair":4.73},{"id":"especiales","name":"Córners y tarjetas (4)","desc":"Mercados de córners y tarjetas con la línea más segura que todavía paga algo.","legs":[{"n":15,"key":"KO2.5","label":"Más de 2.5 tarjetas","rule":{"t":"cards","o":"over","n":2.5},"p":87.7,"match":"Boca Juniors vs Talleres"},{"n":4,"key":"CO7.5","label":"Más de 7.5 córners","rule":{"t":"corners","o":"over","n":7.5},"p":77.5,"match":"Frosinone vs Sassuolo"},{"n":13,"key":"CO7.5","label":"Más de 7.5 córners","rule":{"t":"corners","o":"over","n":7.5},"p":75.6,"match":"Brommapojkarna vs Djurgården"},{"n":3,"key":"KO2.5","label":"Más de 2.5 tarjetas","rule":{"t":"cards","o":"over","n":2.5},"p":82.7,"match":"Çorum FK vs Rizespor"}],"p":42.52,"fair":2.35},{"id":"catorce","name":"Los 14 partidos, versión más probable","desc":"Una selección por partido, la más probable de cada uno (sin pasar de 92%). Es lo máximo que se puede asegurar en 14 partidos.","legs":[{"n":1,"key":"O1.5","label":"Más de 1.5 goles","rule":{"t":"goals","o":"over","n":1.5},"p":84.9,"match":"Eintracht Frankfurt vs 1. FC Köln"},{"n":2,"key":"O1.5","label":"Más de 1.5 goles","rule":{"t":"goals","o":"over","n":1.5},"p":77.8,"match":"Le Mans vs Toulouse"},{"n":3,"key":"O1.5","label":"Más de 1.5 goles","rule":{"t":"goals","o":"over","n":1.5},"p":76.4,"match":"Çorum FK vs Rizespor"},{"n":4,"key":"O1.5","label":"Más de 1.5 goles","rule":{"t":"goals","o":"over","n":1.5},"p":77.0,"match":"Frosinone vs Sassuolo"},{"n":5,"key":"U3.5","label":"Menos de 3.5 goles","rule":{"t":"goals","o":"under","n":3.5},"p":82.6,"match":"Deportivo La Coruña vs Levante"},{"n":6,"key":"U3.5","label":"Menos de 3.5 goles","rule":{"t":"goals","o":"under","n":3.5},"p":74.2,"match":"Burnley vs Wolves"},{"n":7,"key":"O1.5","label":"Más de 1.5 goles","rule":{"t":"goals","o":"over","n":1.5},"p":80.2,"match":"Al Qadsiah vs Abha"},{"n":8,"key":"1X","label":"Doble oportunidad 1X (Rapid Wien o empate)","rule":{"t":"dc","v":"1X"},"p":89.1,"match":"Rapid Wien vs Hartberg"},{"n":9,"key":"U3.5","label":"Menos de 3.5 goles","rule":{"t":"goals","o":"under","n":3.5},"p":76.6,"match":"Sydney FC vs Western Sydney"},{"n":10,"key":"X2","label":"Doble oportunidad X2 (Bali United o empate)","rule":{"t":"dc","v":"X2"},"p":78.4,"match":"Java United vs Bali United"},{"n":12,"key":"U3.5","label":"Menos de 3.5 goles","rule":{"t":"goals","o":"under","n":3.5},"p":80.4,"match":"Newroz vs Al Mina'a"},{"n":13,"key":"X2","label":"Doble oportunidad X2 (Djurgården o empate)","rule":{"t":"dc","v":"X2"},"p":80.5,"match":"Brommapojkarna vs Djurgården"},{"n":14,"key":"X2","label":"Doble oportunidad X2 (Al-Wasl o empate)","rule":{"t":"dc","v":"X2"},"p":80.9,"match":"Baniyas vs Al-Wasl"},{"n":15,"key":"U3.5","label":"Menos de 3.5 goles","rule":{"t":"goals","o":"under","n":3.5},"p":81.6,"match":"Boca Juniors vs Talleres"}],"p":4.45,"fair":22.45}],"N":200000,"img_hits":0}</script>
+<script id="data" type="application/json">{"id":"5532489265","placed":"15/10 · 21:57","odds_total":29609.1,"stake":10,"win":310895.12,"legs":[{"n":1,"home":"Deportivo La Coruña","away":"Levante","comp":"LaLiga","ko":"2026-10-16T19:00:00Z","pick":"1","odds":2.11,"pa":false,"espn":"esp.1","qh":["deportivo","coruna"],"qa":["levante"],"p_model":47.0,"boost":0,"facts":["Deportivo 8.º (10 pts); Levante 17.º (6 pts)","Deportivo invicto en sus últimos 7 de liga contra Levante","Pero 3 de los últimos 6 duelos terminaron en empate (Forebet: empate 42%)"],"p_book":44.3,"p":45.6},{"n":2,"home":"Burnley","away":"Wolves","comp":"Championship","ko":"2026-10-16T19:00:00Z","pick":"1","odds":3.0,"pa":true,"espn":"eng.2","qh":["burnley"],"qa":["wolverhampton","wolves"],"p_model":39.3,"boost":1.5,"facts":["Burnley 21.º; Wolves 9.º","Burnley invicto en 8 partidos de local contra Wolves (4G 4E)","Las fuentes no coinciden: Foresportia da favorito a Burnley, las cuotas a Wolves"],"p_book":31.2,"p":36.8},{"n":3,"home":"Frosinone","away":"Sassuolo","comp":"Serie A","ko":"2026-10-16T18:45:00Z","pick":"2","odds":2.66,"pa":true,"espn":"ita.1","qh":["frosinone"],"qa":["sassuolo"],"p_model":35.8,"boost":1.9,"facts":["Frosinone 9.º (10 pts); Sassuolo 11.º (8 pts)","Sassuolo domina el historial; Frosinone perdió 8 de 15","Partido muy parejo: Sportradar 38% / 25% / 37%"],"p_book":35.1,"p":37.4},{"n":4,"home":"Le Mans","away":"Toulouse","comp":"Ligue 1","ko":"2026-10-16T18:45:00Z","pick":"2","odds":2.33,"pa":true,"espn":"fra.1","qh":["le mans"],"qa":["toulouse"],"p_model":39.3,"boost":1.9,"facts":["Ambos con 6 pts (14.º y 15.º)","Toulouse ganó los últimos 4 enfrentamientos e invicto en 6","Sportradar: Toulouse 41%, empate 27%"],"p_book":40.1,"p":41.6},{"n":5,"home":"APR FC","away":"Zamalek","comp":"CAF Champions League (ida)","ko":"2026-10-16T16:00:00Z","pick":"2","odds":1.53,"pa":false,"espn":"caf.champions","qh":["apr"],"qa":["zamalek"],"p_model":58.0,"boost":0,"facts":["Partido de ida en Kigali (Amahoro Stadium)","APR: remontó la ronda anterior (0-1 y 3-0) y ganó 4-2 a Marines","Zamalek viene en racha de victorias, la última 4-0 a Port FC (AfricaSoccer)"],"p_book":61.1,"p":59.5},{"n":6,"home":"Senegal Sub-20","away":"Mauritania Sub-20","comp":"Torneo africano Sub-20","ko":"2026-10-16T16:00:00Z","pick":"2","odds":7.5,"pa":false,"espn":"","qh":["senegal"],"qa":["mauritania"],"p_model":11.0,"boost":0,"facts":["Cuotas de mercado: Senegal 1.30, empate 5.00, Mauritania 7.00","Senegal Sub-20 recibe 0.4 goles por partido; Mauritania 1.6","Mauritania: 1 victoria en sus últimos 5 (footballpredictions.ai)"],"p_book":12.5,"p":11.8},{"n":7,"home":"ZED FC","away":"Azam FC","comp":"CAF Copa Confederación","ko":"2026-10-16T17:00:00Z","pick":"1","odds":1.33,"pa":false,"espn":"caf.confed","qh":["zed"],"qa":["azam"],"p_model":66.0,"boost":0,"facts":["ZED: 3G 2E 1P en los últimos 6, incluido un 3-0 al Zamalek","Azam: 4G 1E 1P, solo 0.83 goles recibidos por partido","Azam es de los mejores de Tanzania: no es un rival débil"],"p_book":70.3,"p":68.2},{"n":8,"home":"Sierra Leone Sub-20","away":"Guinea-Bissau Sub-20","comp":"Torneo africano Sub-20","ko":"2026-10-16T19:00:00Z","pick":"2","odds":4.0,"pa":false,"espn":"","qh":["sierra leone"],"qa":["guinea-bissau","guinea bissau"],"p_model":22.0,"boost":0,"facts":["Sierra Leone Sub-20: L-L-G-G-E","Guinea-Bissau Sub-20: sin partidos recientes registrados","Pronóstico de footballpredictions.ai: 1-0 para Sierra Leone"],"p_book":23.4,"p":22.7},{"n":9,"home":"Oriku","away":"Flamurtari Vlorë","comp":"Albania","ko":"2026-10-16T11:30:00Z","pick":"2","odds":1.35,"pa":false,"espn":"","qh":["oriku"],"qa":["flamurtari"],"p_model":100.0,"boost":0,"done":{"h":1,"a":4},"facts":["Ya ganado: terminó 1-4"],"p_book":100.0,"p":100},{"n":10,"home":"Dinamo Tirana","away":"Teuta Durrës","comp":"Kategoria Superiore","ko":"2026-10-16T16:30:00Z","pick":"2","odds":2.71,"pa":false,"espn":"alb.1","qh":["dinamo"],"qa":["teuta"],"p_model":40.0,"boost":0,"facts":["Teuta ganó sus últimos 5, con 4 partidos sin recibir gol (FotMob)","Dinamo: 4G 1P en los últimos 5","Historial: Teuta 7 victorias, Dinamo 3, 6 empates"],"p_book":34.5,"p":37.2},{"n":11,"home":"Eintracht Frankfurt","away":"1. FC Köln","comp":"Bundesliga","ko":"2026-10-16T18:30:00Z","pick":"2","odds":3.33,"pa":true,"espn":"ger.1","qh":["frankfurt"],"qa":["koln","cologne"],"p_model":28.0,"boost":2.8,"facts":["Frankfurt 14.º, perdió 0-6 en Leipzig y recibe 3.2 goles por partido","Köln 10.º, ganó 2-1 al Gladbach","Pero Köln perdió sus últimos 3 de visita; Frankfurt es favorito (50%)"],"p_book":28.1,"p":30.9}],"prob":3.262032009563496e-05,"date":"20261016-20261017"}</script>
 <script>
 (function(){
 var D=JSON.parse(document.getElementById('data').textContent);
-var BY={};D.rows.forEach(function(r){BY[r.n]=r;});
-var LIVE={},SRC='',OV={},LSK='parlay1610-v2',IS_GH=/github\.io$/.test(location.hostname);
-var NIGHT=null,MANY=null;
-try{OV=JSON.parse(localStorage.getItem(LSK)||'{}')||{};}catch(e){}
+var LIVE={},SRC='',OV={},PAHIT={},LSK='boleto-5532489265',IS_GH=/github\.io$/.test(location.hostname),NIGHT=null,MANY=null;
+try{var S=JSON.parse(localStorage.getItem(LSK)||'{}')||{};OV=S.ov||{};PAHIT=S.pa||{};}catch(e){}
+function save(){try{localStorage.setItem(LSK,JSON.stringify({ov:OV,pa:PAHIT}));}catch(e){}}
+D.legs.forEach(function(l){if(l.done)LIVE[l.n]={h:l.done.h,a:l.done.a,st:'ft',clock:''};});
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function norm(s){return String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ø/g,'o').toLowerCase();}
 function pct(x,d){var f=Math.pow(10,d==null?1:d);return (Math.round(x*f)/f).toLocaleString('es-HN')+'%';}
 function num(x,d){return Number(x).toLocaleString('es-HN',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});}
-function hn(iso){return new Date(iso).toLocaleString('es-HN',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Tegucigalpa'});}
-function bigN(x){var n=1/x;if(n>=1e15)return num(Math.round(n/1e15))+' mil billones';if(n>=1e12)return num(Math.round(n/1e12))+' billones';if(n>=1e6)return num(Math.round(n/1e6))+' millones';return num(Math.round(n));}
+function hn(iso){return new Date(iso).toLocaleTimeString('es-HN',{hour:'numeric',minute:'2-digit',timeZone:'America/Tegucigalpa'});}
 
-/* ---------- reglas: sirven para el marcador en vivo y para la simulación ---------- */
-function evalRule(r,m){
-  if(!m||m.st==='pre') return {s:'p',t:'no ha empezado'};
-  var fin=m.st==='ft', tot=m.h+m.a;
-  function ou(val,unit){
-    if(val==null) return {s:'p',t:'sin dato'};
-    var t=val+' '+unit;
-    if(r.o==='over'){if(val>r.n)return{s:'w',t:t};return{s:fin?'l':'p',t:t};}
-    if(val>r.n)return{s:'l',t:t};return{s:fin?'w':'p',t:t};
-  }
-  if(r.t==='goals') return ou(tot,'goles');
-  if(r.t==='corners') return ou(m.c,'córners');
-  if(r.t==='cards') return ou(m.k,'tarjetas');
-  if(r.t==='offs') return ou(m.o,'fueras de juego');
-  if(r.t==='btts'){var both=m.h>0&&m.a>0;
-    if(r.v==='yes'){if(both)return{s:'w',t:'marcaron los dos'};return{s:fin?'l':'p',t:'va '+m.h+'-'+m.a};}
-    if(both)return{s:'l',t:'marcaron los dos'};return{s:fin?'w':'p',t:'va '+m.h+'-'+m.a};}
-  if(r.t==='1x2'||r.t==='dc'){var res=m.h>m.a?'1':m.h<m.a?'2':'X',ok=r.v.indexOf(res)>=0;
-    return{s:fin?(ok?'w':'l'):'p',t:'va '+m.h+'-'+m.a+(fin?'':ok?' · cumpliendo':' · fallando')};}
-  if(r.t==='cs'){var p=r.v;
-    if(m.h>p[0]||m.a>p[1])return{s:'l',t:'va '+m.h+'-'+m.a+' · ya no se da'};
-    if(fin)return(m.h===p[0]&&m.a===p[1])?{s:'w',t:'¡exacto!'}:{s:'l',t:'terminó '+m.h+'-'+m.a};
-    var need=(p[0]-m.h)+(p[1]-m.a);return{s:'p',t:'va '+m.h+'-'+m.a+(need?' · faltan '+need:' · así debe terminar')};}
-  return {s:'p',t:''};
+/* Regla 1x2 con pago anticipado (PA): si el equipo elegido se pone 2 goles arriba, se da por ganada */
+function evalLeg(l,m){
+  if(!m||m.st==='pre')return{s:'p',t:'empieza '+hn(l.ko)};
+  var diff=l.pick==='1'?m.h-m.a:l.pick==='2'?m.a-m.h:0;
+  if(l.pa&&(PAHIT[l.n]||diff>=2)){return{s:'w',t:'va '+m.h+'-'+m.a+' · pago anticipado'};}
+  var res=m.h>m.a?'1':m.h<m.a?'2':'X',ok=res===l.pick;
+  if(m.st==='ft')return ok?{s:'w',t:'terminó '+m.h+'-'+m.a}:{s:'l',t:'terminó '+m.h+'-'+m.a};
+  return{s:'p',t:'va '+m.h+'-'+m.a+(ok?' · cumpliendo':' · fallando')};
 }
-function csRule(r){return {t:'cs',v:r.pick.split('-').map(Number)};}
-function state(id,rule,m){var a=evalRule(rule,m),o=OV[id];return{s:o||a.s,t:a.t,man:!!o};}
-function agg(states){var w=0,l=0;states.forEach(function(s){if(s==='w')w++;if(s==='l')l++;});return l?'l':w===states.length?'w':'p';}
+function legState(l){var a=evalLeg(l,LIVE[l.n]),o=OV[l.n];return{s:o||a.s,t:a.t,man:!!o};}
 
-/* ---------- simulador (mismo modelo que el cálculo) ---------- */
-function rpois(l){var L=Math.exp(-l),k=0,p=1;do{k++;p*=Math.random();}while(p>L);return k-1;}
-function rgamma(a){if(a<1){return rgamma(a+1)*Math.pow(Math.random(),1/a);}var d=a-1/3,c=1/Math.sqrt(9*d);for(;;){var x,v;do{var u1=Math.random(),u2=Math.random();x=Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);v=1+c*x;}while(v<=0);v=v*v*v;var u=Math.random();if(u<1-0.0331*x*x*x*x)return d*v;if(Math.log(u)<0.5*x*x+d*(1-v+Math.log(v)))return d*v;}}
-function rnb(mu,ratio){var r=mu/(ratio-1);return rpois(rgamma(r)*mu/r);}
-function simMatch(r){return{h:rpois(r.lh),a:rpois(r.la),c:rnb(r.corners,1.5),k:rnb(r.cards,1.4),o:rnb(r.offs,1.5),st:'ft'};}
-function simNight(){var m={};D.rows.forEach(function(r){m[r.n]=simMatch(r);});return m;}
-function parlayHit(p,night){return p.legs.every(function(l){return evalRule(l.rule,night[l.n]).s==='w';});}
-function imgHit(night){return D.rows.every(function(r){return evalRule(csRule(r),night[r.n]).s==='w';});}
-function runMany(n){var hits={},img=0,best=0;D.parlays.forEach(function(p){hits[p.id]=0;});
-  for(var i=0;i<n;i++){var nt=simNight();D.parlays.forEach(function(p){if(parlayHit(p,nt))hits[p.id]++;});if(imgHit(nt))img++;
-    var c=D.rows.filter(function(r){return evalRule(csRule(r),nt[r.n]).s==='w';}).length;if(c>best)best=c;}
-  return{n:n,hits:hits,img:img,best:best};}
+/* Simulador: cada selección pendiente gana con su probabilidad final */
+function baseStates(){var b={};D.legs.forEach(function(l){b[l.n]=legState(l).s;});return b;}
+function simNight(b){b=b||baseStates();var r={};D.legs.forEach(function(l){var st=b[l.n];r[l.n]=st==='w'?true:st==='l'?false:Math.random()*100<l.p;});return r;}
+function runMany(n){var win=0,fails={},b=baseStates();D.legs.forEach(function(l){fails[l.n]=0;});
+  for(var i=0;i<n;i++){var nt=simNight(b),all=true;D.legs.forEach(function(l){if(!nt[l.n]){all=false;fails[l.n]++;}});if(all)win++;}
+  return{n:n,win:win,fails:fails};}
 
-/* ---------- render ---------- */
-function stack(v){return '<div class="stack" role="img" aria-label="Local '+pct(v[0])+', empate '+pct(v[1])+', visita '+pct(v[2])+'"><span class="h" style="width:'+v[0]+'%">'+Math.round(v[0])+'%</span><span class="d" style="width:'+v[1]+'%">'+Math.round(v[1])+'%</span><span class="a" style="width:'+v[2]+'%">'+Math.round(v[2])+'%</span></div>';}
-function legBtn(id,title,sub,p,st){var ico=st.s==='w'?'✓':st.s==='l'?'✕':'';
-  return '<button class="leg '+st.s+'" id="b-'+id+'" data-ov="'+id+'" type="button"><span class="dot" aria-hidden="true">'+ico+'</span><span class="lt"><span>'+esc(sub)+'</span><b>'+esc(title)+'</b></span><span class="lp"><em>'+p+'</em><span>'+esc(st.t)+(st.man?' · <span class="tag man">manual</span>':'')+'</span></span></button>';}
-function bttsClass(p){return p>=57?'yes':p<=47?'nob':'mid';}
-function bttsWord(p){return p>=57?'Sí':p<=47?'No':'Parejo';}
+function stack2(book,model){return '<div class="x3"><span class="lb">Casa (cuota)</span>'+bar(book)+'<span class="lb">Mi análisis</span>'+bar(model)+'</div>';}
+function bar(v){return '<div class="meter" style="grid-column:auto;height:16px;border-radius:4px;position:relative"><i style="width:'+v+'%"></i><span style="position:absolute;inset:0;font:600 11px/16px var(--body);padding-left:6px;color:var(--ink)">'+pct(v,0)+'</span></div>';}
 
 function render(){
-  var h='';
-  /* encabezado */
-  var imgStates=D.rows.map(function(r){return state('img-'+r.n,csRule(r),LIVE[r.n]).s;});
-  var imgSt=agg(imgStates);
-  h+='<header class="card"><div class="row"><div><div class="lbl">Viernes 16 de octubre · 14 partidos</div><h1>Parlay del 16 de octubre</h1></div></div>';
-  h+='<p class="note"><b>No puedo ver el futuro.</b> Lo que sí hice fue jugar cada partido '+num(D.N)+' veces en una simulación con los datos de hoy (forma, goles, historial, probabilidades de 7 fuentes y cuotas). Lo que más se repite es lo más probable, no lo seguro.</p>';
-  h+='<nav class="toc" aria-label="Secciones"><a href="#parlays">Parlays sugeridos</a><a href="#futuro">Viaje al futuro</a><a href="#boleto">Tu boleto</a><a href="#ambos">Ambos marcan</a><a href="#consejos">Consejos</a><a href="#partidos">Partido por partido</a></nav>';
+  var sts=D.legs.map(legState),w=0,l=0;sts.forEach(function(s){if(s.s==='w')w++;if(s.s==='l')l++;});
+  var tot=D.legs.length,st=l?'l':w===tot?'w':'p';
+  var live=1;D.legs.forEach(function(x,i){if(sts[i].s==='l')live=0;else if(sts[i].s!=='w')live*=x.p/100;});
+  var h='<header class="card"><div class="row"><div><div class="lbl">Múltiple · 11 selecciones · ID '+esc(D.id)+'</div><h1>Boleto de 11 partidos</h1></div><span class="chip '+st+'">'+{p:'En juego',w:'¡Ganado!',l:'Perdido'}[st]+'</span></div>';
+  h+='<div class="kpis"><div><span class="lbl">Cuota total</span><b>'+num(D.odds_total,2)+'</b><small>Apuesta L '+num(D.stake,2)+'</small></div><div><span class="lbl">Ganancia total</span><b>L&nbsp;'+num(D.win,2)+'</b><small>Hecho el '+esc(D.placed)+'</small></div></div>';
+  h+='<div class="kpis"><div class="'+(live<0.01?'bad':'')+'"><span class="lbl">Probabilidad de ganar ahora</span><b>'+(live===0?'0%':'1 en '+num(Math.round(1/live)))+'</b><small>'+(live===0?'Ya se cayó una selección':pct(live*100,live<0.01?3:1)+' con lo que falta')+'</small></div><div><span class="lbl">Selecciones</span><b>'+w+' ✓ · '+l+' ✕</b><small>'+(tot-w-l)+' pendientes</small></div></div>';
+  h+='<div class="bar" aria-hidden="true"><i class="w" style="width:'+(w/tot*100)+'%"></i><i class="l" style="width:'+(l/tot*100)+'%"></i></div>';
   h+='<div class="row muted"><span>'+esc(SRC)+'</span>'+(IS_GH?'<button class="link" id="refresh" type="button">Actualizar ahora</button>':'')+'</div></header>';
 
-  /* parlays sugeridos */
-  h+='<section class="card" id="parlays"><h2>Parlays armados con la simulación</h2><p class="muted">Ninguno es seguro. La <b>cuota justa</b> es lo mínimo que debería pagar la casa para que valga la pena: si HonduBet paga menos, la casa se queda con la ventaja.</p>';
-  D.parlays.forEach(function(p){
-    var sts=p.legs.map(function(l,i){return state('p-'+p.id+'-'+i,l.rule,LIVE[l.n]);});
-    var ps=agg(sts.map(function(s){return s.s;}));
-    h+='<article class="parlay '+ps+'"><div class="ph"><div class="row"><h3>'+esc(p.name)+'</h3><span class="chip '+ps+'">'+{p:'Pendiente',w:'¡Ganado!',l:'Perdido'}[ps]+'</span></div><p class="muted">'+esc(p.desc)+'</p>';
-    h+='<div class="pnums"><div><b>'+pct(p.p)+'</b> <span>gana 1 de cada '+num(Math.round(100/p.p))+' veces</span></div><div><b>'+num(p.fair,2)+'</b> <span>cuota justa</span></div></div></div>';
-    p.legs.forEach(function(l,i){var r=BY[l.n];
-      h+=legBtn('p-'+p.id+'-'+i,l.label,r.home+' vs '+r.away+' · '+hn(r.ko),pct(l.p),sts[i]);});
-    h+='</article>';
-  });
-  h+='</section>';
+  /* lectura rápida */
+  var srt=D.legs.filter(function(x){return !x.done;}).slice().sort(function(a,b){return a.p-b.p;});
+  h+='<section class="card"><h2>Lo que dice el análisis</h2><p class="muted">Al hacer el boleto, las probabilidades daban <b>1 en '+num(Math.round(1/D.prob))+'</b>. La casa paga '+num(D.odds_total,0)+' veces, así que el precio está cerca de lo justo, pero sigue siendo muy difícil.</p>';
+  h+='<ul class="rank">';srt.forEach(function(x){var nm=x.pick==='1'?x.home:x.away;
+    h+='<li><span>'+esc(nm)+' gana <span class="muted">('+esc(x.home)+' vs '+esc(x.away)+')</span></span><b>'+pct(x.p,0)+'</b><span class="meter"><i style="width:'+x.p+'%"></i></span></li>';});
+  h+='</ul><p class="muted">Las selecciones que más pueden tumbar el boleto son Mauritania Sub-20 y Guinea-Bissau Sub-20. Las 4 con <b>PA</b> (pago anticipado) se dan por ganadas si el equipo se pone 2 goles arriba; eso les suma entre 1.5 y 3 puntos.</p></section>';
 
   /* viaje al futuro */
-  h+='<section class="card" id="futuro"><h2>Viaje al futuro</h2><p class="muted">Simula la noche del viernes. Cada vez sale distinto, igual que en la vida real. Así ves con qué frecuencia gana cada parlay.</p>';
-  h+='<div class="btns"><button class="btn" id="sim1" type="button">Simular una noche</button><button class="btn sec" id="simN" type="button">Simular 10,000 noches</button></div>';
-  if(NIGHT){
-    h+='<div class="simlist">';
-    D.rows.forEach(function(r){var m=NIGHT[r.n],ok=evalRule(csRule(r),m).s==='w';
-      h+='<div class="simrow"><span>'+esc(r.home)+' vs '+esc(r.away)+'</span><b>'+m.h+'-'+m.a+'</b><small>'+m.c+' córners · '+m.k+' tarjetas · '+m.o+' fueras de juego · tu marcador '+r.pick+': '+(ok?'<span class="ok">acertado</span>':'<span class="no">fallado</span>')+'</small></div>';});
-    h+='</div><div class="hits">';
-    D.parlays.forEach(function(p){var ok=parlayHit(p,NIGHT);h+='<div class="hit"><span>'+esc(p.name)+'</span><span class="'+(ok?'ok':'no')+'">'+(ok?'Ganó':'Perdió')+'</span></div>';});
-    var c=D.rows.filter(function(r){return evalRule(csRule(r),NIGHT[r.n]).s==='w';}).length;
-    h+='<div class="hit"><span>Boleto de la imagen (14 exactos)</span><span class="'+(imgHit(NIGHT)?'ok':'no')+'">'+c+' de 14 acertados</span></div></div>';
-  }
-  if(MANY){
-    h+='<h3>Resultado de '+num(MANY.n)+' noches simuladas</h3><div class="hits">';
-    D.parlays.forEach(function(p){var r=MANY.hits[p.id]/MANY.n*100;h+='<div class="hit"><span>'+esc(p.name)+'</span><b>'+num(MANY.hits[p.id])+' veces ('+pct(r)+')</b><span class="meter"><i style="width:'+r+'%"></i></span></div>';});
-    h+='<div class="hit"><span>Boleto de la imagen</span><b>'+num(MANY.img)+' veces</b><span class="meter"><i style="width:0%"></i></span></div></div>';
-    h+='<p class="muted">En la mejor de esas '+num(MANY.n)+' noches se acertaron '+MANY.best+' de los 14 marcadores de la imagen.</p>';
-  }
+  h+='<section class="card" id="futuro"><h2>Viaje al futuro</h2><p class="muted">Simula cómo podría terminar el día con las probabilidades de cada selección. Lo que ya terminó cuenta tal cual.</p><div class="btns"><button class="btn" id="sim1" type="button">Simular el día</button><button class="btn sec" id="simN" type="button">Simular 100,000 días</button></div>';
+  if(NIGHT){var ok=D.legs.every(function(x){return NIGHT[x.n];});
+    h+='<div class="simlist">';D.legs.forEach(function(x){var nm=x.pick==='1'?x.home:x.away;h+='<div class="simrow"><span>'+esc(nm)+' gana</span><span class="'+(NIGHT[x.n]?'ok':'no')+'">'+(NIGHT[x.n]?'Sí':'No')+'</span></div>';});
+    h+='</div><p class="'+(ok?'ok':'no')+'">'+(ok?'En esta simulación el boleto GANA':'En esta simulación el boleto pierde')+'</p>';}
+  if(MANY){h+='<h3>'+num(MANY.win)+' boletos ganados de '+num(MANY.n)+' días ('+pct(MANY.win/MANY.n*100,3)+')</h3><div class="hits">';
+    D.legs.slice().sort(function(a,b){return MANY.fails[b.n]-MANY.fails[a.n];}).forEach(function(x){var r=MANY.fails[x.n]/MANY.n*100,nm=x.pick==='1'?x.home:x.away;
+      h+='<div class="hit"><span>Falló '+esc(nm)+'</span><b>'+pct(r,0)+' de los días</b><span class="meter"><i style="width:'+r+'%;background:var(--lose)"></i></span></div>';});
+    h+='</div>';}
   h+='</section>';
 
-  /* boleto de la imagen */
-  var rk=D.rows.slice().sort(function(a,b){return b.side_p-a.side_p;});
-  var iw=imgStates.filter(function(s){return s==='w';}).length,il=imgStates.filter(function(s){return s==='l';}).length;
-  h+='<section class="card" id="boleto"><div class="row"><h2>Tu boleto: 14 marcadores exactos</h2><span class="chip '+imgSt+'">'+{p:'En juego',w:'¡Ganado!',l:'Perdido'}[imgSt]+'</span></div>';
-  h+='<div class="kpis"><div class="bad"><span class="lbl">Acertar los 14 marcadores</span><b>1 en '+bigN(D.combo_exact)+'</b><small>En '+num(D.N)+' simulaciones salió '+D.img_hits+' veces</small></div><div><span class="lbl">Acertar solo quién gana en los 14</span><b>1 en '+num(Math.round(1/D.combo_side))+'</b><small>Ni así es una apuesta razonable</small></div></div>';
-  h+='<p class="muted">'+iw+' acertados · '+(14-iw-il)+' pendientes · '+il+' fallados. Probabilidad de cada pronóstico de la imagen:</p><ul class="rank">';
-  rk.forEach(function(r){var who=r.side===0?r.home:r.side===2?r.away:'Empate';
-    h+='<li><span>'+esc(r.home)+' <b>'+r.pick+'</b> '+esc(r.away)+'</span><b>'+pct(r.exact)+'</b><small>Que gane '+esc(who)+': '+pct(r.side_p)+' · marcador que más se repite: '+r.top[0].s+' ('+pct(r.top[0].p)+')</small></li>';});
-  h+='</ul><p class="warn">Errores en la imagen: el #10 es contra Bali United (no Isenmulang Kalteng), el escudo del #12 no es del Newroz y falta el partido #11.</p></section>';
-
-  /* ambos marcan */
-  var bt=D.rows.slice().sort(function(a,b){return b.btts_fin-a.btts_fin;});
-  h+='<section class="card" id="ambos"><h2>¿Ambos equipos marcan?</h2><p class="muted">Fuentes: probabilidades publicadas o cuotas sin margen. Simulación: mi modelo. Veredicto: el promedio de los dos.</p><div class="tbl"><table><thead><tr><th>Partido</th><th class="n">Fuentes</th><th class="n">Simulación</th><th class="n">Veredicto</th></tr></thead><tbody>';
-  bt.forEach(function(r){h+='<tr><td>'+esc(r.home)+' vs '+esc(r.away)+'</td><td class="n">'+(r.btts_src==null?'–':pct(r.btts_src,0))+'</td><td class="n">'+pct(r.mkts.BY.p,0)+'</td><td class="n '+bttsClass(r.btts_fin)+'">'+bttsWord(r.btts_fin)+' '+pct(r.btts_fin,0)+'</td></tr>';});
-  h+='</tbody></table></div></section>';
-
-  /* consejos */
-  h+='<section class="card" id="consejos"><h2>Consejos para tener más chance</h2><ol class="tips">';
-  h+='<li><b>No juegues marcadores exactos en parlay.</b> Aunque aciertes quién gana, basta un gol de más para perder. Si igual quieres el boleto de la imagen, ponle poco dinero, como si fuera lotería.</li>';
-  h+='<li><b>Usa menos partidos.</b> 14 selecciones de 85% cada una ganan juntas solo 1 de cada 10 veces. Con 3 o 4 la historia cambia.</li>';
-  h+='<li><b>Compara con la cuota justa.</b> Si la casa paga menos que la cuota justa de esta página, a largo plazo pierdes dinero aunque aciertes seguido.</li>';
-  h+='<li><b>Evita los partidos parejos</b> (Burnley–Wolves, Frosinone–Sassuolo, Le Mans–Toulouse). Ahí cualquier resultado es casi lanzar una moneda.</li>';
-  h+='<li><b>Revisa las alineaciones una hora antes.</b> Si un favorito sale con suplentes o hay una baja importante, sus probabilidades bajan.</li>';
-  h+='<li><b>Cuidado con las tarjetas:</b> en algunas casas la roja cuenta como 2. Lee la regla del mercado antes de apostar.</li>';
-  h+='<li><b>Apuesta solo lo que no te afecte perder</b> y no subas la apuesta para recuperar. La casa siempre se queda con un margen.</li></ol></section>';
-
-  /* método */
-  h+='<section class="card"><h2>Cómo se calculó</h2><p class="muted"><b>Filtro 1 (fuentes):</b> promedio de lo publicado por Sportradar, Fox Sports, Forebet, KickOff, Foresportia, FotMob y cuotas de casas de apuestas sin margen. <b>Filtro 2 (modelo propio):</b> goles esperados de cada equipo según promedio de goles, xG, forma de los últimos 5 partidos, historial y localía, con un modelo de Poisson. El <b>veredicto</b> es el promedio de los dos y con él se simulan los partidos. Córners y tarjetas usan los promedios de Forebet cuando existen y, si no, el típico de cada liga. Los fueras de juego son una estimación: ninguna fuente los publica por partido.</p>';
-  h+='<div class="legend"><span><i style="background:var(--accent)"></i>Local</span><span><i style="background:var(--pend)"></i>Empate</span><span><i style="background:var(--away)"></i>Visita</span></div></section>';
-
-  /* partidos */
-  h+='<h2 id="partidos">Partido por partido</h2>';
-  D.rows.forEach(function(r){
-    var m=LIVE[r.n], st=state('img-'+r.n,csRule(r),m), ico=st.s==='w'?'✓':st.s==='l'?'✕':'';
-    var live=!m||m.st==='pre'?'<span class="live ft">'+esc(hn(r.ko))+' (Honduras, aprox.)</span>':m.st==='ft'?'<span class="live ft">Final</span>':m.st==='ht'?'<span class="live">Medio tiempo</span>':'<span class="live">En vivo '+esc(m.clock||'')+'</span>';
-    h+='<article class="match '+st.s+'" id="m'+r.n+'"><div class="mh"><div class="row"><span class="teams"><span class="num">'+String(r.n).padStart(2,'0')+'</span>'+esc(r.home)+' vs '+esc(r.away)+'</span><span class="lbl">'+esc(r.league)+'</span></div>';
-    h+='<div class="score"><span class="sc">'+(m&&m.st!=='pre'?m.h+' – '+m.a:'– : –')+'</span>'+live;
-    if(m&&m.st!=='pre')h+='<span>'+(m.c==null?'–':m.c)+' córners · '+(m.k==null?'–':m.k)+' tarjetas · '+(m.o==null?'–':m.o)+' fueras de juego</span>';
-    h+='</div></div>';
-    h+='<button class="sel '+st.s+'" data-ov="img-'+r.n+'" id="b-img-'+r.n+'" type="button"><span class="dot" aria-hidden="true">'+ico+'</span><span class="lt"><span>Marcador exacto de la imagen</span><b>'+esc(r.home)+' '+r.pick+' '+esc(r.away)+'</b></span><span class="lp"><em>'+pct(r.exact)+'</em><span>'+esc(st.t)+(st.man?' · manual':'')+'</span></span></button>';
-    h+='<div class="an"><div class="x3"><span class="lb">Filtro 1</span>'+stack(r.f1)+'<span class="lb">Filtro 2</span>'+stack(r.f2)+'<span class="lb"><b>Veredicto</b></span>'+stack(r.fin)+'</div>';
-    h+='<div><div class="lbl">Marcadores que más salen en la simulación</div><div class="tops">'+r.top.slice(0,4).map(function(t){return '<span><b>'+t.s+'</b> '+pct(t.p)+'</span>';}).join('')+'</div></div>';
-    var M=r.mkts;
-    h+='<div class="stats">';
-    h+='<div><span class="lbl">Ambos marcan</span><b class="'+bttsClass(r.btts_fin)+'">'+bttsWord(r.btts_fin)+' '+pct(r.btts_fin,0)+'</b><small>Fuentes '+(r.btts_src==null?'–':pct(r.btts_src,0))+' · simulación '+pct(M.BY.p,0)+'</small></div>';
-    h+='<div><span class="lbl">Goles</span><b>'+num(r.lh+r.la,1)+' esperados</b><small>Más de 1.5: '+pct(M['O1.5'].p,0)+' · más de 2.5: '+pct(M['O2.5'].p,0)+' · menos de 3.5: '+pct(M['U3.5'].p,0)+'</small></div>';
-    h+='<div><span class="lbl">Doble oportunidad</span><b>1X '+pct(M['1X'].p,0)+'</b><small>X2: '+pct(M.X2.p,0)+' · 12: '+pct(M['12'].p,0)+'</small></div>';
-    h+='<div><span class="lbl">Córners (~'+num(r.corners,1)+')</span><b>+7.5: '+pct(M['CO7.5'].p,0)+'</b><small>+8.5: '+pct(M['CO8.5'].p,0)+' · +9.5: '+pct(M['CO9.5'].p,0)+' · +10.5: '+pct(M['CO10.5'].p,0)+'</small></div>';
-    h+='<div><span class="lbl">Tarjetas (~'+num(r.cards,1)+')</span><b>+2.5: '+pct(M['KO2.5'].p,0)+'</b><small>+1.5: '+pct(M['KO1.5'].p,0)+' · +3.5: '+pct(M['KO3.5'].p,0)+' · +4.5: '+pct(M['KO4.5'].p,0)+'</small></div>';
-    h+='<div><span class="lbl">Fueras de juego (est. ~'+num(r.offs,1)+')</span><b>+2.5: '+pct(M['OO2.5'].p,0)+'</b><small>+3.5: '+pct(M['OO3.5'].p,0)+' · +4.5: '+pct(M['OO4.5'].p,0)+'</small></div>';
-    h+='</div><div><div class="lbl">Datos de los partidos anteriores</div><ul class="facts">'+r.facts.map(function(f){return '<li>'+esc(f)+'</li>';}).join('')+'</ul></div>';
-    h+='<p class="src">Fuentes del filtro 1: '+esc(r.sources.join(', '))+'.'+(r.note?' '+esc(r.note):'')+'</p></div></article>';
-  });
-  h+='<p class="muted">Toca cualquier selección para marcarla a mano: ganada → perdida → automática. Las marcas se guardan en este dispositivo.</p>';
+  /* selecciones */
+  h+='<h2>Selección por selección</h2>';
+  D.legs.forEach(function(x,i){var m=LIVE[x.n],s=sts[i],ico=s.s==='w'?'✓':s.s==='l'?'✕':'',nm=x.pick==='1'?x.home:x.away;
+    var lv=!m||m.st==='pre'?'<span class="live ft">'+esc(hn(x.ko))+' (Honduras)</span>':m.st==='ft'?'<span class="live ft">Final</span>':m.st==='ht'?'<span class="live">Medio tiempo</span>':'<span class="live">En vivo '+esc(m.clock||'')+'</span>';
+    h+='<article class="match '+s.s+'"><div class="mh"><div class="row"><span class="teams"><span class="num">'+String(x.n).padStart(2,'0')+'</span>'+esc(x.home)+' vs '+esc(x.away)+'</span><span class="lbl">'+esc(x.comp)+'</span></div>';
+    h+='<div class="score"><span class="sc">'+(m&&m.st!=='pre'?m.h+' – '+m.a:'– : –')+'</span>'+lv+(x.espn||x.done?'':'<span>sin datos en vivo: márcala tú</span>')+'</div></div>';
+    h+='<button class="sel '+s.s+'" data-ov="'+x.n+'" id="b-'+x.n+'" type="button"><span class="dot" aria-hidden="true">'+ico+'</span><span class="lt"><span>1x2 · '+x.pick+(x.pa?'<span class="pa">PA</span>':'')+'</span><b>Gana '+esc(nm)+'</b></span><span class="lp"><span class="oddsv">'+num(x.odds,2)+'</span><span>'+esc(s.t)+(s.man?' · manual':'')+'</span></span></button>';
+    h+='<div class="an">'+(x.done?'':stack2(x.p_book,x.p_model)+'<p class="muted">Probabilidad final: <b>'+pct(x.p)+'</b>'+(x.boost?' (incluye +'+num(x.boost,1)+' por pago anticipado)':'')+'</p>');
+    h+='<div><div class="lbl">Datos</div><ul class="facts">'+x.facts.map(function(f){return '<li>'+esc(f)+'</li>';}).join('')+'</ul></div></div></article>';});
+  h+='<p class="muted">Toca una selección para marcarla a mano: ganada → perdida → automática. "Casa" es la probabilidad que da la cuota quitando el margen de la casa (~7%). Esto es un cálculo, no una garantía.</p>';
   document.getElementById('app').innerHTML=h;
 }
 
-/* ---------- marcadores en vivo (ESPN) ---------- */
 async function getJSON(u){var r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error(r.status);return r.json();}
-function stat(t,names){var a=(t&&t.statistics)||[];for(var i=0;i<names.length;i++){var x=a.find(function(s){return s.name===names[i];});if(x){var v=Number(x.displayValue!=null?x.displayValue:x.value);if(!isNaN(v))return v;}}return null;}
 function tt(c){var t=(c&&c.team)||{};return norm([t.displayName,t.name,t.shortDisplayName,t.location,t.abbreviation].join(' '));}
 async function refresh(){
-  var lg={};D.rows.forEach(function(r){(lg[r.espn]=lg[r.espn]||[]).push(r);});var ok=0;
+  var lg={};D.legs.forEach(function(l){if(l.espn&&!l.done)(lg[l.espn]=lg[l.espn]||[]).push(l);});var ok=0;
   await Promise.all(Object.keys(lg).map(async function(code){
-    var base='https://site.api.espn.com/apis/site/v2/sports/soccer/'+code,sb;
-    try{sb=await getJSON(base+'/scoreboard?dates='+D.date);ok++;}catch(e){return;}
-    var evs=sb.events||[];
-    await Promise.all(lg[code].map(async function(r){
-      var ev=evs.find(function(e){var cs=(e.competitions&&e.competitions[0]&&e.competitions[0].competitors)||[];
-        return cs.some(function(c){return r.qh.some(function(q){return tt(c).indexOf(q)>=0;});})&&cs.some(function(c){return r.qa.some(function(q){return tt(c).indexOf(q)>=0;});});});
-      if(!ev)return;
-      var comp=ev.competitions[0],hm=comp.competitors.find(function(c){return c.homeAway==='home';})||comp.competitors[0],aw=comp.competitors.find(function(c){return c.homeAway==='away';})||comp.competitors[1];
+    var sb;try{sb=await getJSON('https://site.api.espn.com/apis/site/v2/sports/soccer/'+code+'/scoreboard?dates='+D.date);ok++;}catch(e){return;}
+    (lg[code]).forEach(function(l){
+      var ev=(sb.events||[]).find(function(e){var cs=(e.competitions&&e.competitions[0]&&e.competitions[0].competitors)||[];
+        return cs.some(function(c){return l.qh.some(function(q){return tt(c).indexOf(q)>=0;});})&&cs.some(function(c){return l.qa.some(function(q){return tt(c).indexOf(q)>=0;});});});
+      if(!ev)return;var comp=ev.competitions[0],hm=comp.competitors.find(function(c){return c.homeAway==='home';})||comp.competitors[0],aw=comp.competitors.find(function(c){return c.homeAway==='away';})||comp.competitors[1];
       var ty=(ev.status&&ev.status.type)||{},st=ty.state==='post'?'ft':ty.state==='in'?(/HALFTIME|HALF_TIME/i.test(ty.name||'')?'ht':'live'):'pre';
-      var hh=r.qh.some(function(q){return tt(hm).indexOf(q)>=0;}),sh=Number(hm.score)||0,sa=Number(aw.score)||0;
-      var m={h:hh?sh:sa,a:hh?sa:sh,st:st,clock:(ev.status&&ev.status.displayClock)||'',c:null,k:null,o:null};
-      if(st!=='pre'){try{var su=await getJSON(base+'/summary?event='+ev.id),c=0,k=0,o=0,hc=0,hk=0,ho=0;
-        ((su.boxscore&&su.boxscore.teams)||[]).forEach(function(t){var x=stat(t,['wonCorners','cornerKicks']);if(x!=null){c+=x;hc=1;}var y=stat(t,['yellowCards']),rd=stat(t,['redCards']);if(y!=null||rd!=null){k+=(y||0)+(rd||0);hk=1;}var of=stat(t,['offsides']);if(of!=null){o+=of;ho=1;}});
-        if(hc)m.c=c;if(hk)m.k=k;if(ho)m.o=o;}catch(e){}}
-      LIVE[r.n]=m;
-    }));
+      var hh=l.qh.some(function(q){return tt(hm).indexOf(q)>=0;}),sh=Number(hm.score)||0,sa=Number(aw.score)||0;
+      var m={h:hh?sh:sa,a:hh?sa:sh,st:st,clock:(ev.status&&ev.status.displayClock)||''};LIVE[l.n]=m;
+      var diff=l.pick==='1'?m.h-m.a:m.a-m.h;if(l.pa&&st!=='pre'&&diff>=2&&!PAHIT[l.n]){PAHIT[l.n]=true;save();}
+    });
   }));
-  SRC=ok?'Marcadores en vivo de ESPN · '+new Date().toLocaleTimeString('es-HN',{hour:'numeric',minute:'2-digit'}):(IS_GH?'No se pudieron leer los marcadores. Reintentando…':'Análisis previo. Los marcadores en vivo funcionan en la página de GitHub.');
+  SRC=ok?'Marcadores en vivo de ESPN · '+new Date().toLocaleTimeString('es-HN',{hour:'numeric',minute:'2-digit'}):(IS_GH?'No se pudieron leer los marcadores. Reintentando…':'Los marcadores en vivo funcionan en la página de GitHub.');
   render();
 }
-
 document.getElementById('app').addEventListener('click',function(e){
   if(e.target.closest('#refresh')){SRC='Actualizando…';render();refresh();return;}
-  if(e.target.closest('#sim1')){NIGHT=simNight();render();var s=document.getElementById('futuro');if(s)s.scrollIntoView({block:'start'});return;}
-  if(e.target.closest('#simN')){var b=e.target.closest('#simN');b.textContent='Simulando…';b.disabled=true;setTimeout(function(){MANY=runMany(10000);render();var s=document.getElementById('futuro');if(s)s.scrollIntoView({block:'start'});},30);return;}
+  if(e.target.closest('#sim1')){NIGHT=simNight();render();var a=document.getElementById('futuro');if(a)a.scrollIntoView({block:'start'});return;}
+  if(e.target.closest('#simN')){MANY=runMany(100000);render();var b=document.getElementById('futuro');if(b)b.scrollIntoView({block:'start'});return;}
   var t=e.target.closest('[data-ov]');if(!t)return;var id=t.dataset.ov,cur=OV[id];
-  if(!cur)OV[id]='w';else if(cur==='w')OV[id]='l';else delete OV[id];
-  try{localStorage.setItem(LSK,JSON.stringify(OV));}catch(er){}
-  render();var nb=document.getElementById('b-'+id);if(nb)nb.focus();
+  if(!cur)OV[id]='w';else if(cur==='w')OV[id]='l';else delete OV[id];save();render();var nb=document.getElementById('b-'+id);if(nb)nb.focus();
 });
-SRC=IS_GH?'Cargando marcadores…':'Análisis previo. Los marcadores en vivo funcionan en la página de GitHub.';
-render();
-if(IS_GH){refresh();setInterval(refresh,60000);}
+SRC=IS_GH?'Cargando marcadores…':'Los marcadores en vivo funcionan en la página de GitHub.';
+render();if(IS_GH){refresh();setInterval(refresh,60000);}
 })();
 </script>
 </body>
